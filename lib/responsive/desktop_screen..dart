@@ -9,13 +9,15 @@ class DesktopScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Desktop Screen"),
       ),
-      body: Container(
-        margin: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-            color: Theme.of(context).primaryColor.withOpacity(0.3),
-        ),
-      ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(child: child)
+            ],
+          )
+        ],
+      )
     );
   }
 }
