@@ -59,12 +59,19 @@ class _WeightScaleUIState extends State<WeightScaleUI> {
                                         color: Colors.white60,
                                       ),
                                       Expanded(
-                                        child: Container(
-                                          color: Colors.blueGrey,
-                                        ),
+                                        child: ListView.builder(
+                                          itemCount: 50,
+                                          itemBuilder: (context, index) {
+                                            return Container(
+                                              height: 25,
+                                              width: double.infinity,
+                                              color:(index%2)==0 ? Colors.white : Colors.grey
+                                             );
+                                          },
+                                        )
                                       ),
                                       Container(
-                                        height: 60,
+                                        height: 75,
                                         color: Colors.purpleAccent,
                                       ),
                                     ],
@@ -93,7 +100,7 @@ class _WeightScaleUIState extends State<WeightScaleUI> {
                             ),
                           ),
                           drwaKeys==true ? Container(
-                            height: 45,
+                            height: 50,
                             color: Colors.red,
                           ):Container(
                             height: 0,
