@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/views/weight_scale_ui/setting_bar.dart';
 
+int idnumber = 0;
+
 class WeightScaleUI extends StatefulWidget {
   const WeightScaleUI({Key? key}) : super(key: key);
 
@@ -10,18 +12,48 @@ class WeightScaleUI extends StatefulWidget {
 
 class _WeightScaleUIState extends State<WeightScaleUI> {
   bool drwaKeys = true;
-
+  int _counter=0;
 
   final elvShaped = ElevatedButton.styleFrom(
     backgroundColor: Color(0xffB5B5B5),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(3.0),
-
-
     ),
   );
 
-  List<String> items = ["کالاها","مشتریان","تراکنش","وظایف","ابزار","پس دادن","جمع کل"];//List.generate(7, (index) => index.toString());
+  void addfunc()
+  {
+    setState(() {
+      drwaKeys == true ? drwaKeys = false : drwaKeys = true;
+    });
+  }
+  void subfunc()
+  {
+    setState(() {
+      _counter++;
+    });
+  }
+  void delfunc()
+  {
+    setState(() {
+      _counter--;
+    });
+  }
+  late List<VoidCallback> funcs = [
+    addfunc,
+    subfunc,
+    delfunc
+  ];
+
+  List<String> items = [
+    "کالاها",
+    "مشتریان",
+    "تراکنش",
+    "وظایف",
+    "ابزار",
+    "پس دادن",
+    "جمع کل"
+  ]; //List.generate(7, (index) => index.toString());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,6 +76,7 @@ class _WeightScaleUIState extends State<WeightScaleUI> {
                                   Container(
                                     height: 55,
                                     color: Color(0xff366092),
+                                    child: Center(child: Text('Counter = $_counter',style: TextStyle(fontSize:28,color:Colors.red),)),
                                   ),
                                   Container(
                                     height: 55,
@@ -59,7 +92,7 @@ class _WeightScaleUIState extends State<WeightScaleUI> {
                                   ),
                                   Container(
                                     height: 30,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         gradient: LinearGradient(
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
@@ -131,48 +164,18 @@ class _WeightScaleUIState extends State<WeightScaleUI> {
                           ],
                         ),
                       ),
-                      drwaKeys == true
-                          ? Container(
-                              height: 55,
-                              color: Color(0xFFADD1FF),
-                              child: GridView.count(
-                                childAspectRatio: (2 / 1),
-                                // Create a grid with 2 columns. If you change the scrollDirection to
-
-                                // horizontal, this produces 2 rows.
-                                crossAxisCount: 7,
-                                // Generate 100 widgets that display their index in the List.
-                                children: List.generate(7, (index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.all(2.0),
-                                    child: ElevatedButton(
-
-                                        style: elvShaped,
-                                        child: Text(
-                                          items[index],
-                                          style: TextStyle(fontSize: 16,fontWeight: FontWeight.w900,color: Colors.black),
-                                        ),
-                                        onPressed: () {}),
-                                  );
-                                }),
-                              ),
-                            )
-                          : Container(
-                              height: 0,
-                            ),
+                      if (drwaKeys == true)
+                        Container(
+                          height: 55,
+                          color: Color(0xFFADD1FF),
+                        ),
                       Container(
                         height: 25,
                         color: Color(0xFFF0F0F0),
                       ),
                     ],
                   )),
-              SettingBar(
-                onPressed: () {
-                  setState(() {
-                    drwaKeys == true ? drwaKeys = false : drwaKeys = true;
-                  });
-                },
-              ),
+              SettingBar(onPressed: funcs),
             ],
           ),
         ),
