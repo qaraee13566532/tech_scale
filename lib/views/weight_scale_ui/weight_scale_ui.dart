@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/views/weight_scale_ui/setting_bar.dart';
+import 'package:tech_scale/views/weight_scale_ui/transaction/sale_transaction_bar.dart';
+import 'package:tech_scale/views/weight_scale_ui/transaction/sale_transaction_info.dart';
+import 'package:tech_scale/views/weight_scale_ui/weight_indicator/weight.dart';
 
 int idnumber = 0;
 
@@ -12,7 +15,7 @@ class WeightScaleUI extends StatefulWidget {
 
 class _WeightScaleUIState extends State<WeightScaleUI> {
   bool drwaKeys = true;
-  int _counter=0;
+  int _counter = 0;
 
   final elvShaped = ElevatedButton.styleFrom(
     backgroundColor: Color(0xffB5B5B5),
@@ -21,29 +24,25 @@ class _WeightScaleUIState extends State<WeightScaleUI> {
     ),
   );
 
-  void addfunc()
-  {
+  void addfunc() {
     setState(() {
       drwaKeys == true ? drwaKeys = false : drwaKeys = true;
     });
   }
-  void subfunc()
-  {
+
+  void subfunc() {
     setState(() {
       _counter++;
     });
   }
-  void delfunc()
-  {
+
+  void delfunc() {
     setState(() {
       _counter--;
     });
   }
-  late List<VoidCallback> funcs = [
-    addfunc,
-    subfunc,
-    delfunc
-  ];
+
+  late List<VoidCallback> funcs = [addfunc, subfunc, delfunc];
 
   List<String> items = [
     "کالاها",
@@ -53,7 +52,7 @@ class _WeightScaleUIState extends State<WeightScaleUI> {
     "ابزار",
     "پس دادن",
     "جمع کل"
-  ]; //List.generate(7, (index) => index.toString());
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -73,46 +72,12 @@ class _WeightScaleUIState extends State<WeightScaleUI> {
                               flex: 2,
                               child: Column(
                                 children: [
+                                  const WeightIndicator(),
+                                  const SaleTransactionBar(),
+                                  const SaleTransactionInfo(),
                                   Container(
-                                    height: 55,
-                                    color: Color(0xff366092),
-                                    child: Center(child: Text('Counter = $_counter',style: TextStyle(fontSize:28,color:Colors.red),)),
-                                  ),
-                                  Container(
-                                    height: 55,
-                                    color: Color(0xff366092),
-                                  ),
-                                  Container(
-                                    height: 55,
-                                    color: Color(0xff366092),
-                                  ),
-                                  Container(
-                                    height: 55,
-                                    color: Color(0xff366092),
-                                  ),
-                                  Container(
-                                    height: 30,
+                                    height: 25,
                                     decoration: const BoxDecoration(
-                                        gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Color(0xffFDFDFE),
-                                        Color(0xff94A5C9),
-                                      ],
-                                    )),
-                                  ),
-                                  Container(
-                                    height: 25,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          color: Color(0xffDEDFE2), width: 1),
-                                      color: Color(0xffABBBD7),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 25,
-                                    decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
