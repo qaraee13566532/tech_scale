@@ -1,7 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
-import 'package:tech_scale/views/weight_scale_ui/weight_scale_ui.dart';
+import 'package:tech_scale/views/scale/scale_view.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
@@ -25,6 +25,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light(),
-        home: WeightScaleUI());
+        home: ScaleView());
   }
 }

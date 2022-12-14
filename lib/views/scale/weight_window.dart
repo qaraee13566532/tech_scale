@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/views/constant.dart';
 
-class WeightIndicator extends StatelessWidget {
-  const WeightIndicator({Key? key}) : super(key: key);
+class WeighWindow extends StatelessWidget {
+  const WeighWindow({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
