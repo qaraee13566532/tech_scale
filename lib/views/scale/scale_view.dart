@@ -8,7 +8,7 @@ import 'package:tech_scale/views/scale/tasks_layout/taskpad/search.dart';
 import 'package:tech_scale/views/scale/tasks_layout/taskpad/taskpad.dart';
 import 'package:tech_scale/views/scale/transaction/sale_transaction_bar.dart';
 import 'package:tech_scale/views/scale/transaction/sale_transaction_info.dart';
-import 'package:tech_scale/views/scale/weight_window.dart';
+import 'package:tech_scale/views/scale/weight/weight_window.dart';
 
 class ScaleView extends StatefulWidget {
   const ScaleView({Key? key}) : super(key: key);
@@ -19,6 +19,10 @@ class ScaleView extends StatefulWidget {
 
 class _ScaleViewState extends State<ScaleView> {
   bool showFnLayout = true;
+  int weightValue=230670;
+  int tareValue=100800;
+  int unitPrice=80000000;
+  int totalPrice=245780000;
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +42,12 @@ class _ScaleViewState extends State<ScaleView> {
                             Expanded(
                               flex: 2,
                               child: Column(
-                                children: const [
-                                  WeighWindow(),
+                                children: [
+                                  WeighWindow(
+                                      weightValue: weightValue,
+                                      tareValue: tareValue,
+                                      unitPrice: unitPrice,
+                                      totalPrice: totalPrice),
                                   SaleTransactionBar(),
                                   SaleTransactionInfo(),
                                   SaleGrid(),
