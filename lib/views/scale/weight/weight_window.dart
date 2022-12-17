@@ -6,6 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tech_scale/views/constant.dart';
 import 'package:tech_scale/views/scale/weight/weight_box_card.dart';
+import 'package:tech_scale/views/scale/weight_customer_layout/weight_customer_layout.dart';
 
 import '../../../main.dart';
 
@@ -26,7 +27,7 @@ class WeighWindow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff366092),
+      color: kBackgroundWeightColor,
       child: Column(
         children: [
           Padding(
@@ -36,16 +37,16 @@ class WeighWindow extends StatelessWidget {
                 Expanded(
                     child:
                         WeightBoxCard(value: totalPrice, title: 'قیمت (ریال)')),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 Expanded(
                     child: WeightBoxCard(value: unitPrice, title: 'فی (ریال)')),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 Expanded(
                     child: WeightBoxCard(
                         value: tareValue,
                         title: '(Kg) پارسنگ',
                         fractionDigits: 3)),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 Expanded(
                     child: WeightBoxCard(
                         value: weightValue,
@@ -54,29 +55,9 @@ class WeighWindow extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: 15,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                    onPressed: () {},
-                    child: Container(
-                      height: 40,
-                    )),
-                SizedBox(width: 15),
-                ElevatedButton(
-                    onPressed: () {},
-                    child: Container(
-                      height: 40,
-                    )),
-              ],
-            ),
-          ),
-          SizedBox(height: 5),
+          SizedBox(height: 10,),
+          WeightCustomerLayout(badgeValues: [10,0,11,44,0,0]),
+          SizedBox(height: 5,)
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-const kBackgroundWeightStyle = Color(0xff366092);
+const kBackgroundWeightColor = Color(0xff366092);
 
 const kBackgroundSaleTransactionInfoColor = Color(0xffABBBD7);
 const kBackgroundSaleTransactionInfoBorderColor = Color(0xffDEDFE2);
@@ -35,3 +36,15 @@ var kWeightCardsStyle = BoxDecoration(
   //border: Border.all(
   // color: Colors.white, width: 2)
 );
+
+const kWeightCardTitleStyle =  TextStyle(
+    fontWeight: FontWeight.normal,
+    fontFamily: 'BNazanin',
+    decoration: TextDecoration.none,
+    fontSize: 20,
+    color: Color(0xffF7F7F7));
+
+var kWeightValueStyle = GoogleFonts.oswald(
+    fontWeight: FontWeight.normal,
+    decoration: TextDecoration.none,
+    color: Color(0xffF7F7F7));
