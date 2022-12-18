@@ -27,13 +27,16 @@ class WeightCustomerCard extends StatelessWidget {
               child: Container(
             child: Badge(
               showBadge: hasBadge & (badgeValue > 0),
-              position: BadgePosition.topStart(top: -12, start: 18),
+              position: BadgePosition.topStart(top: -10, start: 25),
               badgeContent: Text(
                 badgeValue.toString(),
                 style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
               ),
               badgeColor: Colors.blue,
-              child: widgetIcon,
+              child: Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: widgetIcon,
+              ),
             ),
           )),
         ));

@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tech_scale/views/constant.dart';
 import 'package:tech_scale/views/scale/weight/weight_box_card.dart';
 import 'package:tech_scale/views/scale/weight_customer_layout/weight_customer_layout.dart';
 
+
 import '../../../main.dart';
+import '../weight_scale_info.dart';
 
 class WeighWindow extends StatelessWidget {
   final int? weightValue;
@@ -30,6 +30,8 @@ class WeighWindow extends StatelessWidget {
       color: kBackgroundWeightColor,
       child: Column(
         children: [
+          WeightScaleInfoCard(),
+   //       SizedBox(height: 5,),
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Row(
@@ -55,9 +57,12 @@ class WeighWindow extends StatelessWidget {
               ],
             ),
           ),
+
+     //     SizedBox(height: 5,),
+
           SizedBox(height: 10,),
           WeightCustomerLayout(badgeValues: [10,0,11,44,0,0]),
-          SizedBox(height: 5,)
+          SizedBox(height: 10,),
         ],
       ),
     );

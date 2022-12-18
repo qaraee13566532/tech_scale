@@ -9,6 +9,7 @@ import 'package:tech_scale/views/scale/tasks_layout/taskpad/taskpad.dart';
 import 'package:tech_scale/views/scale/transaction/sale_transaction_bar.dart';
 import 'package:tech_scale/views/scale/transaction/sale_transaction_info.dart';
 import 'package:tech_scale/views/scale/weight/weight_window.dart';
+import 'package:tech_scale/views/scale/weight_scale_info.dart';
 
 class ScaleView extends StatefulWidget {
   const ScaleView({Key? key}) : super(key: key);
@@ -43,6 +44,7 @@ class _ScaleViewState extends State<ScaleView> {
                               flex: 2,
                               child: Column(
                                 children: [
+
                                   WeighWindow(
                                       weightValue: weightValue,
                                       tareValue: tareValue,

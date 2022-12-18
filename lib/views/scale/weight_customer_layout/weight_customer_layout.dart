@@ -15,18 +15,18 @@ class WeightCustomerLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List.generate(
           6,
-          (index) => Expanded(
-              child: WeightCustomerCard(
+          (index) => WeightCustomerCard(
             widgetIcon: index < 4
-                ? const Icon(FontAwesomeIcons.userLarge)
-                : index == 4
-                    ? const Icon(Icons.zoom_in)
-                    : const Icon(Icons.zoom_out),
+            ? const Icon(FontAwesomeIcons.userLarge,size: 30,)
+            : index == 4
+                ? const Icon(Icons.zoom_in,size: 30)
+                : const Icon(Icons.zoom_out,size: 30),
             badgeValue: badgeValues[index],
             hasBadge: (index < 4),
-          )),
+          ),
         ),
       ),
     );

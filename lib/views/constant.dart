@@ -48,3 +48,10 @@ var kWeightValueStyle = GoogleFonts.oswald(
     fontWeight: FontWeight.normal,
     decoration: TextDecoration.none,
     color: Color(0xffF7F7F7));
+
+var kWeightScaleInfo = BoxDecoration(
+  color: const Color(0xff94A5C9),
+  borderRadius: BorderRadius.circular(8),
+  //border: Border.all(
+  // color: Colors.white, width: 2)
+);
