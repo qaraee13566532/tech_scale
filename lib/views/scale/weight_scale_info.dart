@@ -13,16 +13,30 @@ class WeightScaleInfoCard extends StatelessWidget {
         decoration: kWeightCardsStyle,
         child: Row(
           children: [
-            Text(
-              '  Min = 10 kg   Max = 500/1000 kg  e = d = 500g   (III)',
-              style: GoogleFonts.ptSans(
-                fontSize: 14,
-                color: Colors.white,
-                decoration: TextDecoration.none,
+            Expanded(
+              flex: 3,
+              child: Text(
+                '  Min = 10 kg   Max = 500/1000 kg  e = d = 500g   (III)',
+                style: GoogleFonts.ptSans(
+                  fontSize: 14,
+                  color: Colors.white,
+                  decoration: TextDecoration.none,
+                ),
+                textAlign: TextAlign.left,
               ),
-              textAlign: TextAlign.left,
             ),
-
+            Expanded(
+              flex: 1,
+              child: Text(
+                '  Zero   Stable  Tare',
+                style: GoogleFonts.ptSans(
+                  fontSize: 14,
+                  color: Colors.white,
+                  decoration: TextDecoration.none,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ],
         ),
       ),
