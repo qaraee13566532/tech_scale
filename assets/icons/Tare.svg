@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.263" height="17.328" viewBox="0 0 26.263 17.328">
+  <g id="Tare" transform="translate(-12 -15)">
+    <path id="Path_1" data-name="Path 1" d="M24.463,24.328a1,1,0,0,1-.544-.161l-6.463-4.195a1,1,0,1,1,1.089-1.678l5.924,3.845,9.065-5.77-9.1-7.125-5.856,4.1a1,1,0,1,1-1.148-1.638l6.463-4.528a1,1,0,0,1,1.19.031l10.8,8.453A1,1,0,0,1,35.8,17.3L25,24.171A1,1,0,0,1,24.463,24.328Z" transform="translate(2 8)"/>
+    <path id="Path_2" data-name="Path 2" d="M24,19H18a1,1,0,0,1,0-2h6a1,1,0,1,1,0,2Z" transform="translate(5.354 4)"/>
+    <path id="Path_3" data-name="Path 3" d="M24,22.92a1,1,0,0,1-1-1V18a1,1,0,0,1,2,0v3.92A1,1,0,0,1,24,22.92Z" transform="translate(2.354 4.58)"/>
+    <path id="Polygon_1" data-name="Polygon 1" d="M1.96,0,3.92,4H0Z" transform="translate(22 22.04) rotate(90)"/>
+    <path id="Polygon_1_-_Outline" data-name="Polygon 1 - Outline" d="M1.96,2.272,1.6,3h.713L1.96,2.272M1.96,0,3.92,4H0Z" transform="translate(22 22.04) rotate(90)"/>
+    <path id="Polygon_5" data-name="Polygon 5" d="M1.96,0,3.92,4H0Z" transform="translate(12 25.92) rotate(-90)"/>
+    <path id="Polygon_5_-_Outline" data-name="Polygon 5 - Outline" d="M1.96,2.272,1.6,3h.713L1.96,2.272M1.96,0,3.92,4H0Z" transform="translate(12 25.92) rotate(-90)"/>
+    <path id="Path_4" data-name="Path 4" d="M11,24.75H8a.75.75,0,0,1,0-1.5h3a.75.75,0,0,1,0,1.5Z" transform="translate(7.5 -0.04)"/>
+  </g>
+</svg>

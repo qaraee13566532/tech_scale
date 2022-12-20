@@ -45,6 +45,7 @@ dependencies:
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.3.0
   badges: ^2.0.3
+  flutter_svg: ^1.1.6
   #desktop_window: ^0.4.0
 
 dev_dependencies:
@@ -70,7 +71,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icons/user.svg
+    - assets/icons/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

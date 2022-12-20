@@ -20,10 +20,10 @@ class WeightCustomerLayout extends StatelessWidget {
           6,
           (index) => WeightCustomerCard(
             widgetIcon: index < 4
-            ? const Icon(FontAwesomeIcons.userLarge,size: 30,)
+            ? const Icon(FontAwesomeIcons.userLarge,size: 30,color: Colors.indigo,)
             : index == 4
-                ? const Icon(Icons.zoom_in,size: 30)
-                : const Icon(Icons.zoom_out,size: 30),
+                ?  Text('صفر',style: kWeightCardTitleStyle.copyWith(color:Colors.indigo,fontWeight: FontWeight.bold),)
+                :  Text('پارسنگ',style: kWeightCardTitleStyle.copyWith(color:Colors.indigo,fontWeight: FontWeight.bold)),
             badgeValue: badgeValues[index],
             hasBadge: (index < 4),
           ),

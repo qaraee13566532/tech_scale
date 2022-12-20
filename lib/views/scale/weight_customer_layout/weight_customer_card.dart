@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tech_scale/views/constant.dart';
 
 class WeightCustomerCard extends StatelessWidget {
-  final Icon? widgetIcon;
+  final Widget? widgetIcon;
   final int badgeValue;
   final bool hasBadge;
 
