@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_scale/model/weight/calibration.dart';
 import 'package:tech_scale/views/scale/Invoice_completion/invoice_complition_tasks.dart';
 import 'package:tech_scale/views/scale/function_keys.dart';
 import 'package:tech_scale/views/scale/notofication_bar.dart';
@@ -9,7 +10,6 @@ import 'package:tech_scale/views/scale/tasks_layout/taskpad/taskpad.dart';
 import 'package:tech_scale/views/scale/transaction/sale_transaction_bar.dart';
 import 'package:tech_scale/views/scale/transaction/sale_transaction_info.dart';
 import 'package:tech_scale/views/scale/weight/weight_window.dart';
-import 'package:tech_scale/views/scale/weight_scale_info.dart';
 
 class ScaleView extends StatefulWidget {
   const ScaleView({Key? key}) : super(key: key);
@@ -20,10 +20,23 @@ class ScaleView extends StatefulWidget {
 
 class _ScaleViewState extends State<ScaleView> {
   bool showFnLayout = true;
-  int weightValue=230670;
-  int tareValue=100800;
-  int unitPrice=80000000;
-  int totalPrice=245780000;
+  int weightValue = 230670;
+  int tareValue = 100800;
+  int unitPrice = 80000000;
+  int totalPrice = 245780000;
+  String? weightInfo;
+  CalibrationInfo calInfo = CalibrationInfo();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    calInfo.maxFirstCapacity = 30000000;
+    calInfo.maxSecondCapacity = 60000000;
+    calInfo.weightFirstDivision = 1000;
+    calInfo.weightSecondDivision = 2000;
+    weightInfo = calInfo.makeDeviceInfo();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +46,7 @@ class _ScaleViewState extends State<ScaleView> {
         Expanded(
           child: Row(
             children: [
+              SettingBar(onPressed: []),
               Expanded(
                   flex: 29,
                   child: Column(
@@ -41,23 +55,6 @@ class _ScaleViewState extends State<ScaleView> {
                         child: Row(
                           children: [
                             Expanded(
-                              flex: 2,
-                              child: Column(
-                                children: [
-
-                                  WeighWindow(
-                                      weightValue: weightValue,
-                                      tareValue: tareValue,
-                                      unitPrice: unitPrice,
-                                      totalPrice: totalPrice),
-                                  SaleTransactionBar(),
-                                  SaleTransactionInfo(),
-                                  SaleGrid(),
-                                  InvoiceComplitionTasks(),
-                                ],
-                              ),
-                            ),
-                            Expanded(
                                 flex: 1,
                                 child: Column(
                                   children: const [
@@ -65,6 +62,23 @@ class _ScaleViewState extends State<ScaleView> {
                                     TaskPad(),
                                   ],
                                 )),
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                children: [
+                                  WeighWindow(
+                                      weightValue: weightValue,
+                                      tareValue: tareValue,
+                                      unitPrice: unitPrice,
+                                      totalPrice: totalPrice,
+                                      weightInfo: weightInfo),
+                                  SaleTransactionBar(),
+                                  SaleTransactionInfo(),
+                                  SaleGrid(),
+                                  InvoiceComplitionTasks(),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -72,7 +86,6 @@ class _ScaleViewState extends State<ScaleView> {
                       const NotificationBar(),
                     ],
                   )),
-              SettingBar(onPressed: []),
             ],
           ),
         ),

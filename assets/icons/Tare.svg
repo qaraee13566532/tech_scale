@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="26.263" height="17.328" viewBox="0 0 26.263 17.328">
-  <g id="Tare" transform="translate(-12 -15)">
-    <path id="Path_1" data-name="Path 1" d="M24.463,24.328a1,1,0,0,1-.544-.161l-6.463-4.195a1,1,0,1,1,1.089-1.678l5.924,3.845,9.065-5.77-9.1-7.125-5.856,4.1a1,1,0,1,1-1.148-1.638l6.463-4.528a1,1,0,0,1,1.19.031l10.8,8.453A1,1,0,0,1,35.8,17.3L25,24.171A1,1,0,0,1,24.463,24.328Z" transform="translate(2 8)"/>
-    <path id="Path_2" data-name="Path 2" d="M24,19H18a1,1,0,0,1,0-2h6a1,1,0,1,1,0,2Z" transform="translate(5.354 4)"/>
-    <path id="Path_3" data-name="Path 3" d="M24,22.92a1,1,0,0,1-1-1V18a1,1,0,0,1,2,0v3.92A1,1,0,0,1,24,22.92Z" transform="translate(2.354 4.58)"/>
-    <path id="Polygon_1" data-name="Polygon 1" d="M1.96,0,3.92,4H0Z" transform="translate(22 22.04) rotate(90)"/>
-    <path id="Polygon_1_-_Outline" data-name="Polygon 1 - Outline" d="M1.96,2.272,1.6,3h.713L1.96,2.272M1.96,0,3.92,4H0Z" transform="translate(22 22.04) rotate(90)"/>
-    <path id="Polygon_5" data-name="Polygon 5" d="M1.96,0,3.92,4H0Z" transform="translate(12 25.92) rotate(-90)"/>
-    <path id="Polygon_5_-_Outline" data-name="Polygon 5 - Outline" d="M1.96,2.272,1.6,3h.713L1.96,2.272M1.96,0,3.92,4H0Z" transform="translate(12 25.92) rotate(-90)"/>
-    <path id="Path_4" data-name="Path 4" d="M11,24.75H8a.75.75,0,0,1,0-1.5h3a.75.75,0,0,1,0,1.5Z" transform="translate(7.5 -0.04)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.809" height="17.194" viewBox="0 0 20.809 17.194">
+  <g id="Tare" transform="translate(-15.338 -14.713)">
+    <path id="Path_1" data-name="Path 1" d="M23.385,23.907a1,1,0,0,1-.626-.22l-5.385-4.323a1,1,0,0,1,1.252-1.56L23.4,21.638l7.43-5.646-7.47-6.935-4.707,4.083a1,1,0,0,1-1.311-1.511l5.385-4.671a1,1,0,0,1,1.336.023l9,8.355a1,1,0,0,1-.075,1.529l-9,6.839A1,1,0,0,1,23.385,23.907Z" transform="translate(2.763 8)"/>
+    <path id="Path_2" data-name="Path 2" d="M23.144,18.75H18a.75.75,0,0,1,0-1.5h5.144a.75.75,0,1,1,0,1.5Z" transform="translate(5.763 3.846)"/>
+    <path id="Path_3" data-name="Path 3" d="M24,22.273a.75.75,0,0,1-.75-.75V18a.75.75,0,1,1,1.5,0v3.523A.75.75,0,0,1,24,22.273Z" transform="translate(2.263 4.994)"/>
+    <path id="Path_7" data-name="Path 7" d="M1.943,0,3.535,2.518H0Z" transform="translate(22.281 21.679) rotate(90)"/>
+    <path id="Path_7_-_Outline" data-name="Path 7 - Outline" d="M1.943,0,3.535,2.518H0Z" transform="translate(22.281 21.679) rotate(90)"/>
+    <path id="Path_11" data-name="Path 11" d="M1.943,2.518,3.535,0H0Z" transform="translate(17.856 21.679) rotate(90)"/>
+    <path id="Path_11_-_Outline" data-name="Path 11 - Outline" d="M1.943,2.518,0,0H3.535Z" transform="translate(17.856 21.679) rotate(90)"/>
+    <path id="Path_4" data-name="Path 4" d="M10.528,24.5H8a.5.5,0,0,1,0-1h2.528a.5.5,0,0,1,0,1Z" transform="translate(9.597 -0.565)"/>
   </g>
 </svg>

@@ -33,12 +33,10 @@ const kSettingBar = BoxDecoration(
 var kWeightCardsStyle = BoxDecoration(
   color: Color(0xff94A5C9),
   borderRadius: BorderRadius.circular(8),
-  //border: Border.all(
-  // color: Colors.white, width: 2)
 );
 
-const kWeightCardTitleStyle =  TextStyle(
-    fontWeight: FontWeight.normal,
+const kWeightCardTitleStyle = TextStyle(
+    fontWeight: FontWeight.bold,
     fontFamily: 'BNazanin',
     decoration: TextDecoration.none,
     fontSize: 20,
@@ -50,8 +48,12 @@ var kWeightValueStyle = GoogleFonts.oswald(
     color: Color(0xffF7F7F7));
 
 var kWeightScaleInfo = BoxDecoration(
-  color: const Color(0xff94A5C9),
-  borderRadius: BorderRadius.circular(8),
-  //border: Border.all(
-  // color: Colors.white, width: 2)
+    color: const Color(0xff94A5C9),
+    borderRadius: BorderRadius.circular(8),
 );
+
+const List<String> weightSpec = ['', ''];
+
+var kBatteryIconStyle =BoxDecoration(
+    color: Colors.blueAccent,
+    borderRadius: BorderRadius.circular(8));

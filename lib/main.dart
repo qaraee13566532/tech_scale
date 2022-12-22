@@ -23,8 +23,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.light(),
-        home: ScaleView());
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light(),
+      home: const Directionality(
+        textDirection: TextDirection.rtl,
+        child: ScaleView(),
+      ),
+    );
   }
 }

@@ -1,8 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:tech_scale/views/constant.dart';
+import 'package:tech_scale/util/constant.dart';
 
 class WeightBoxCard extends StatelessWidget {
   final int? value;
@@ -13,7 +12,7 @@ class WeightBoxCard extends StatelessWidget {
       {Key? key, required this.value, required this.title, this.fractionDigits})
       : super(key: key);
 
-  String convet_to_string_format() {
+  String convertToStringFormat() {
     return (value! / pow(10, fractionDigits ?? 0))
         .toDouble()
         .toStringAsFixed(fractionDigits ?? 0)
@@ -30,7 +29,7 @@ class WeightBoxCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(title!, style: kWeightCardTitleStyle),
-          Text(convet_to_string_format(),
+          Text(convertToStringFormat(),
               style: kWeightValueStyle.copyWith(
                   fontSize: (mediaQueryData.size.width / 100).toDouble() * 3)),
         ],

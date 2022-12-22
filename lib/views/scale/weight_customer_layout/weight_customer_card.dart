@@ -1,6 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:tech_scale/views/constant.dart';
+import 'package:tech_scale/util/constant.dart';
 
 class WeightCustomerCard extends StatelessWidget {
   final Widget? widgetIcon;
