@@ -76,14 +76,16 @@ class WeightScaleInfoCard extends StatelessWidget {
               flex: 3,
               child: Container(
                 decoration: kWeightCardsStyle,
-                child: Text(
-                  weightInfo,
-                  style: GoogleFonts.ptSans(
-                    fontSize: 16,
-                    color: Colors.white,
-                    decoration: TextDecoration.none,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(weightInfo,
+                    style: GoogleFonts.ptSans(
+                      fontSize: 16,
+                      color: Colors.white,
+                      decoration: TextDecoration.none,
+                    ),
+                    textAlign: TextAlign.left,
                   ),
-                  textAlign: TextAlign.left,
                 ),
               ),
             ),

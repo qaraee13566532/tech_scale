@@ -1,7 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
-import 'package:tech_scale/views/scale/scale_view.dart';
+import 'package:tech_scale/views/scale/main_ui.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
