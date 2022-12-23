@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
 import 'package:tech_scale/views/scale/Invoice_completion/invoice_complition_tasks.dart';
 import 'package:tech_scale/views/scale/function_keys.dart';
 import 'package:tech_scale/views/scale/notofication_bar.dart';
-import 'package:tech_scale/views/scale/sale_grid.dart';
+import 'package:tech_scale/views/scale/sale/sale_grid.dart';
 import 'package:tech_scale/views/scale/setting_bar.dart';
 import 'package:tech_scale/views/scale/tasks_layout/taskpad/search.dart';
 import 'package:tech_scale/views/scale/tasks_layout/taskpad/taskpad.dart';
@@ -26,6 +27,17 @@ class _ScaleViewState extends State<ScaleView> {
   int totalPrice = 245780000;
   String? weightInfo;
   CalibrationInfo calInfo = CalibrationInfo();
+  final List<SaleData> saleData = [
+    SaleData()..itemCode = '1000'..description='خیار'..itemType=1..totalPrice=25800..tax=10..unitPrice=1250..weight=100..quantity=0,
+    SaleData()..itemCode = '1001'..description='گوجه'..itemType=2..totalPrice=45000..tax=10..unitPrice=1000..weight=25300..quantity=5,
+    SaleData()..itemCode = '1002'..description='سیبزمینی'..itemType=1..totalPrice=98000..tax=10..unitPrice=300..weight=40000..quantity=0,
+    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
+    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
+    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
+    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
+    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
+    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
+  ];
 
   @override
   void initState() {
@@ -74,7 +86,7 @@ class _ScaleViewState extends State<ScaleView> {
                                       weightInfo: weightInfo),
                                   SaleTransactionBar(),
                                   SaleTransactionInfo(),
-                                  SaleGrid(),
+                                  SaleGrid(saleData:saleData),
                                   InvoiceComplitionTasks(),
                                 ],
                               ),

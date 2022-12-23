@@ -8,7 +8,12 @@ class WeightInfoLabel {
     isOverThousand = input >= 1000 ? true : false;
     if (isOverThousand!) {
       value = (value! / 1000).round();
-      unit = 'kg';
+      if (value! >= 1000) {
+        value = (value! / 1000).round();
+        unit = 'ton';
+      } else {
+        unit = 'kg';
+      }
     } else {
       unit = 'g';
     }
@@ -28,16 +33,20 @@ class CalibrationInfo {
 
   String makeDeviceInfo() {
     WeightInfoLabel minimumWeight =
-        WeightInfoLabel(this.weightFirstDivision! * 20);
-    WeightInfoLabel maxFirstCapacity = WeightInfoLabel(this.maxFirstCapacity!);
+    WeightInfoLabel(this.weightFirstDivision! * 20);
+    WeightInfoLabel maxFirstCapacity =
+    WeightInfoLabel(this.maxFirstCapacity!);
     WeightInfoLabel maxSecondCapacity =
-        WeightInfoLabel(this.maxSecondCapacity!);
+    WeightInfoLabel(this.maxSecondCapacity!);
     WeightInfoLabel weightFirstDivision =
-        WeightInfoLabel(this.weightFirstDivision!);
+    WeightInfoLabel(this.weightFirstDivision!);
     WeightInfoLabel weightSecondDivision =
-        WeightInfoLabel(this.weightSecondDivision!);
+    WeightInfoLabel(this.weightSecondDivision!);
     String info =
-        'Min = ${minimumWeight.value} ${minimumWeight.unit}   Max = ${maxFirstCapacity.value}/${maxSecondCapacity.value} ${maxSecondCapacity.unit}   e= ${weightFirstDivision.value}/${weightSecondDivision.value} ${weightSecondDivision.unit} III';
+        'Min = ${minimumWeight.value} ${minimumWeight
+        .unit}   Max = ${maxFirstCapacity.value}/${maxSecondCapacity
+        .value} ${maxSecondCapacity.unit}   e = d = ${weightFirstDivision
+        .value}/${weightSecondDivision.value} ${weightSecondDivision.unit} III';
     return info;
   }
 }
