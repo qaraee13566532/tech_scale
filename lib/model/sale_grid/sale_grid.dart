@@ -1,6 +1,6 @@
 class SaleData
 {
-  String? itemCode;
+  late String itemCode;
   String? description;
   int? quantity;
   int? weight;

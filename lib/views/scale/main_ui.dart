@@ -27,17 +27,68 @@ class _ScaleViewState extends State<ScaleView> {
   int totalPrice = 245780000;
   String? weightInfo;
   CalibrationInfo calInfo = CalibrationInfo();
-  final List<SaleData> saleData = [
-    SaleData()..itemCode = '1000'..description='خیار'..itemType=1..totalPrice=25800..tax=10..unitPrice=1250..weight=100..quantity=0,
-    SaleData()..itemCode = '1001'..description='گوجه'..itemType=2..totalPrice=45000..tax=10..unitPrice=1000..weight=25300..quantity=5,
-    SaleData()..itemCode = '1002'..description='سیبزمینی'..itemType=1..totalPrice=98000..tax=10..unitPrice=300..weight=40000..quantity=0,
-    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
-    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
-    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
-    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
-    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
-    SaleData()..itemCode = '1003'..description='موز'..itemType=2..totalPrice=14700..tax=10..unitPrice=970..weight=20500..quantity=240,
+  List<SaleData> saleData = [
+    SaleData()
+      ..itemCode = '1000'
+      ..description = 'خیار'
+      ..itemType = 1
+      ..totalPrice = 25800
+      ..tax = 10
+      ..unitPrice = 1250
+      ..weight = 100
+      ..quantity = 0,
+    SaleData()
+      ..itemCode = '1001'
+      ..description = 'گوجه'
+      ..itemType = 2
+      ..totalPrice = 45000
+      ..tax = 10
+      ..unitPrice = 1000
+      ..weight = 25300
+      ..quantity = 5,
+    SaleData()
+      ..itemCode = '1002'
+      ..description = 'سیب زمینی و گوجه سبز اصلی'
+      ..itemType = 1
+      ..totalPrice = 98000
+      ..tax = 10
+      ..unitPrice = 300
+      ..weight = 40000
+      ..quantity = 0,
+    SaleData()
+      ..itemCode = '1003'
+      ..description = 'موز'
+      ..itemType = 2
+      ..totalPrice = 14700
+      ..tax = 10
+      ..unitPrice = 970
+      ..weight = 20500
+      ..quantity = 240,
   ];
+
+  SaleData testSaleData = SaleData()
+    ..itemCode = '1004'
+    ..description = 'پرتقال'
+    ..itemType = 1
+    ..totalPrice = 23300
+    ..tax = 7
+    ..unitPrice = 9800000
+    ..weight = 77889900
+    ..quantity = 5;
+
+  void tare() {
+    setState(() {
+      saleData.add(testSaleData);
+    });
+  }
+
+  void remove() {
+    setState(() {
+      saleData.remove(testSaleData);
+    });
+  }
+
+  List<VoidCallback> weightCustomerTasks=[];
 
   @override
   void initState() {
@@ -47,6 +98,12 @@ class _ScaleViewState extends State<ScaleView> {
     calInfo.weightFirstDivision = 1000;
     calInfo.weightSecondDivision = 2000;
     weightInfo = calInfo.makeDeviceInfo();
+    weightCustomerTasks!.add(tare);
+    weightCustomerTasks!.add(remove);
+    weightCustomerTasks!.add(remove);
+    weightCustomerTasks!.add(remove);
+    weightCustomerTasks!.add(remove);
+    weightCustomerTasks!.add(remove);
     super.initState();
   }
 
@@ -83,10 +140,11 @@ class _ScaleViewState extends State<ScaleView> {
                                       tareValue: tareValue,
                                       unitPrice: unitPrice,
                                       totalPrice: totalPrice,
-                                      weightInfo: weightInfo),
+                                      weightInfo: weightInfo,
+                                      weightCustomerTasks: weightCustomerTasks!),
                                   SaleTransactionBar(),
                                   SaleTransactionInfo(),
-                                  SaleGrid(saleData:saleData),
+                                  SaleGrid(saleData: saleData,),
                                   InvoiceComplitionTasks(),
                                 ],
                               ),

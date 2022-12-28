@@ -13,6 +13,7 @@ class WeighWindow extends StatelessWidget {
   final int? unitPrice;
   final int? totalPrice;
   final String? weightInfo;
+  final List<VoidCallback> weightCustomerTasks;
 
   const WeighWindow(
       {Key? key,
@@ -20,7 +21,7 @@ class WeighWindow extends StatelessWidget {
       required this.tareValue,
       required this.unitPrice,
       required this.totalPrice,
-      required this.weightInfo})
+      required this.weightInfo,required this.weightCustomerTasks})
       : super(key: key);
 
 
@@ -60,7 +61,7 @@ class WeighWindow extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const WeightCustomerLayout(badgeValues: [0, 0, 10, 11, 12, 5]),
+          WeightCustomerLayout(badgeValues: const [0, 0, 10, 11, 12, 5],weightCustomerTasks:weightCustomerTasks),
           const SizedBox(
             height: 10,
           ),

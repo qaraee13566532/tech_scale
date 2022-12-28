@@ -7,8 +7,8 @@ import 'package:tech_scale/views/scale/weight_customer_layout/weight_customer_ca
 
 class WeightCustomerLayout extends StatelessWidget {
   final List<int> badgeValues;
-
-  const WeightCustomerLayout({Key? key, required this.badgeValues})
+  final List<VoidCallback> weightCustomerTasks;
+  const WeightCustomerLayout({Key? key, required this.badgeValues,required this.weightCustomerTasks})
       : super(key: key);
 
   @override
@@ -19,21 +19,7 @@ class WeightCustomerLayout extends StatelessWidget {
         children: List.generate(
           6,
           (index) => WeightCustomerCard(
-            widgetIcon: /* index < 4
-                ? const Icon(
-                    FontAwesomeIcons.userLarge,
-                    size: 30,
-                    color: Colors.indigo,
-                  )
-                : index == 4
-                    ? Text(
-                        'صفر',
-                        style: kWeightCardTitleStyle.copyWith(
-                            color: Colors.indigo, fontWeight: FontWeight.bold),
-                      )
-                    : Text('پارسنگ',
-                        style: kWeightCardTitleStyle.copyWith(
-                            color: Colors.indigo, fontWeight: FontWeight.bold)),*/
+            widgetIcon:
                 index == 0
                     ? Text(
                         'صفر',
@@ -52,6 +38,7 @@ class WeightCustomerLayout extends StatelessWidget {
                           ),
             badgeValue: badgeValues[index],
             hasBadge: (index > 1),
+            onTap: weightCustomerTasks[index] ,
           ),
         ),
       ),

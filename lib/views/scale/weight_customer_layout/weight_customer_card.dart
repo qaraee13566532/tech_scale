@@ -6,12 +6,13 @@ class WeightCustomerCard extends StatelessWidget {
   final Widget? widgetIcon;
   final int badgeValue;
   final bool hasBadge;
+  final VoidCallback? onTap;
 
   const WeightCustomerCard(
       {Key? key,
       this.widgetIcon,
       required this.badgeValue,
-      required this.hasBadge})
+      required this.hasBadge,required this.onTap})
       : super(key: key);
 
   @override
@@ -22,7 +23,7 @@ class WeightCustomerCard extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: kBackgroundSaleTransactionInfoColor,
           ),
-          onPressed: () {},
+          onPressed: onTap,
           child: Center(
               child: Container(
             child: Badge(
