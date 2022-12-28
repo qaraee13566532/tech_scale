@@ -1,205 +1,125 @@
 import 'package:flutter/material.dart';
+import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/util/constant.dart';
 
-import '../../../model/sale_grid/sale_grid.dart';
-class Person
-{
-  int? age;
-  String ? name;
-}
 class SaleGrid extends StatefulWidget {
-  final List<SaleData> saleData;
+  final List<SaleData> sales;
 
-  // final VoidCallback? funcSort;
-  const SaleGrid({Key? key, required this.saleData}) : super(key: key);
+  const SaleGrid({Key? key, required this.sales}) : super(key: key);
 
   @override
-  SaleGridState createState() => SaleGridState();
+  State<SaleGrid> createState() => _SaleGridState();
 }
 
-class SaleGridState extends State<SaleGrid> {
-  var dataRows = <DataRow>[];
-
-   List<SaleData> saleData = [
-    SaleData()
-      ..itemCode = '1000'
-      ..description = 'خیار'
-      ..itemType = 1
-      ..totalPrice = 25800
-      ..tax = 10
-      ..unitPrice = 1250
-      ..weight = 100
-      ..quantity = 0,
-    SaleData()
-      ..itemCode = '1001'
-      ..description = 'گوجه'
-      ..itemType = 2
-      ..totalPrice = 45000
-      ..tax = 10
-      ..unitPrice = 1000
-      ..weight = 25300
-      ..quantity = 5,
-    SaleData()
-      ..itemCode = '1002'
-      ..description = 'سیب زمینی و گوجه سبز اصلی'
-      ..itemType = 1
-      ..totalPrice = 98000
-      ..tax = 10
-      ..unitPrice = 300
-      ..weight = 40000
-      ..quantity = 0,
-    SaleData()
-      ..itemCode = '1003'
-      ..description = 'موز'
-      ..itemType = 2
-      ..totalPrice = 14700
-      ..tax = 10
-      ..unitPrice = 970
-      ..weight = 20500
-      ..quantity = 240,
-  ];
+class _SaleGridState extends State<SaleGrid> {
   int sortColumnIndex = 0;
-  bool sort = true;
-  final List<String> gidCaptions = [
-    'کد کالا',
-    'نام کالا',
-    'مقدار',
-    'فی',
-    'مالیات',
-    'قیمت'
-  ];
+  bool isAscending = true;
+  int rowCounter = 0;
 
   @override
   Widget build(BuildContext context) {
+    rowCounter=0;
     return Expanded(
-        child: Scaffold(
-      body: Container(
-        width: double.infinity,
-        color: Colors.white,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: DataTable(
-            headingRowColor:
-                MaterialStateColor.resolveWith((states) => Color(0xffBBD6F8)),
-            sortColumnIndex: sortColumnIndex,
-            sortAscending: sort,
-            columnSpacing: 10,
-            headingRowHeight: 30,
-            columns: List.generate(
-              gidCaptions.length,
-              (index) => DataColumn(
-                  label: Text(
-                    gidCaptions[index],
-                    style: kWeightCardTitleStyle.copyWith(
-                        color: Colors.black, fontSize: 16),
-                  ),
-                  onSort: (columnIndex, ascending) {
-                    if (columnIndex == 0) {
-                      saleData.sort((a,b)=>ascending ? b.itemCode.compareTo(a.itemCode):a.itemCode.compareTo(b.itemCode));
-                      print(saleData[0].itemCode);
-                      print(saleData[1].itemCode);
-                      print(saleData[2].itemCode);
-                      print(saleData[3].itemCode);
-                      //    print(saleData);
-                    }
-                    setState(() {
-                      sortColumnIndex = columnIndex;
-                      sort = !sort;
-                    });
-                  }),
-            ),
-            rows: dataRows,
-          ),
-        ),
-      ),
-    ));
-  }
-
-  compareString(bool ascending, dynamic itemCode1, dynamic itemCode2) {
-    ascending
-        ? itemCode1!.compareTo(itemCode2!)
-        : itemCode2!.compareTo(itemCode1!);
-  }
-}
-
-/*
-class SaleGrid extends StatelessWidget {
-  final List<SaleData> saleData;
-  var dataRows = <DataRow>[];
-  final VoidCallback? funcSort;
-
-  SaleGrid({Key? key, required this.saleData,required this.funcSort}) : super(key: key) {
-    dataRows = List.generate(
-        saleData.length,
-        (index) => DataRow(
-              cells: <DataCell>[
-                DataCell(
-                  Text(saleData[index].itemCode!),
-                ),
-                DataCell(
-                  Text(saleData[index].description!),
-                ),
-                DataCell(saleData[index].itemType == 1
-                    ? Text(saleData[index].weight.toString())
-                    : Text(saleData[index].quantity.toString())),
-                DataCell(
-                  Text(saleData[index].unitPrice.toString()),
-                ),
-                DataCell(
-                  Text(saleData[index].tax.toString()),
-                ),
-                DataCell(
-                  Text(saleData[index].totalPrice.toString()),
-                ),
-              ],
-            ));
-  }
-
-  int? sortColumnIndex;
-  bool sort=true;
-  final List<String> gidCaptions = [
-    'کد کالا',
-    'نام کالا',
-    'مقدار',
-    'فی',
-    'مالیات',
-    'قیمت'
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        width: double.infinity,
-        color: Colors.white,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: DataTable(
-            headingRowColor:
-                MaterialStateColor.resolveWith((states) => Color(0xffBBD6F8)),
- //           sortColumnIndex: sortColumnIndex,
-   //         sortAscending: sort,
-            columnSpacing: 10,
-            headingRowHeight: 30,
-            columns: List.generate(
-              gidCaptions.length,
-              (index) => DataColumn(
-                  label: Text(
-                    gidCaptions[index],
-                    style: kWeightCardTitleStyle.copyWith(
-                        color: Colors.black, fontSize: 16),
-                  ),
-                  onSort: (columnIndex, ascending) {
-                 //   sortColumnIndex = columnIndex;
-                   // sort=!sort;
-
-                  }),
-            ),
-            rows: dataRows,
+      child: Scaffold(
+        body: Container(
+          width: double.infinity,
+          color: Colors.white,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: buildDataTable(),
           ),
         ),
       ),
     );
   }
+
+  buildDataTable() {
+    final columns = ['کد کالا', 'نام کالا', 'مقدار', 'فی', 'مالیات', 'قیمت'];
+    return DataTable(
+        headingTextStyle: kWeightCardTitleStyle.copyWith(
+            color: Colors.black, fontWeight: FontWeight.normal),
+        sortAscending: isAscending,
+        sortColumnIndex: sortColumnIndex,
+        columns: getColumns(columns),
+        columnSpacing: 10,
+        rows: getRows(widget.sales));
+  }
+
+  getColumns(List<String> columns) => columns
+      .map((String column) => DataColumn(
+            label: Text(
+              column,
+            ),
+            onSort: onSort,
+          ))
+      .toList();
+
+  getRows(List<SaleData> sales) => sales.map((sale) {
+        final cells = [
+          sale.itemCode,
+          sale.description,
+          sale.quantity,
+          sale.unitPrice,
+          sale.tax,
+          sale.totalPrice
+        ];
+        rowCounter++;
+        return DataRow(
+            cells: getCells(cells),
+            color: (rowCounter % 2 == 0)
+                ? MaterialStateProperty.resolveWith((states) {
+                    return Colors.white;
+                  })
+                : MaterialStateProperty.resolveWith((states) {
+                    return const Color(0xFFF0F0F0);
+                  }));
+      }).toList();
+
+  getCells(List<dynamic> cells) => cells
+      .map(
+        (data) => DataCell(
+          Text('$data'),
+        ),
+      )
+      .toList();
+
+  void onSort(int columnIndex, bool ascending) {
+    switch (columnIndex) {
+      case 0:
+        widget.sales.sort((sale1, sale2) => ascending
+            ? sale1.itemCode.compareTo(sale2.itemCode)
+            : sale2.itemCode.compareTo(sale1.itemCode));
+        break;
+      case 1:
+        widget.sales.sort((sale1, sale2) => ascending
+            ? sale1.description!.compareTo(sale2.description!)
+            : sale2.description!.compareTo(sale1.description!));
+        break;
+      case 2:
+        widget.sales.sort((sale1, sale2) => ascending
+            ? sale1.quantity!.compareTo(sale2.quantity!)
+            : sale2.quantity!.compareTo(sale1.quantity!));
+        break;
+      case 3:
+        widget.sales.sort((sale1, sale2) => ascending
+            ? sale1.unitPrice!.compareTo(sale2.unitPrice!)
+            : sale2.unitPrice!.compareTo(sale1.unitPrice!));
+        break;
+      case 4:
+        widget.sales.sort((sale1, sale2) => ascending
+            ? sale1.tax!.compareTo(sale2.tax!)
+            : sale2.tax!.compareTo(sale1.tax!));
+        break;
+      case 5:
+        widget.sales.sort((sale1, sale2) => ascending
+            ? sale1.totalPrice!.compareTo(sale2.totalPrice!)
+            : sale2.totalPrice!.compareTo(sale1.totalPrice!));
+        break;
+    }
+
+    setState(() {
+      sortColumnIndex = columnIndex;
+      isAscending = ascending;
+    });
+  }
 }
-*/

@@ -27,19 +27,19 @@ class _ScaleViewState extends State<ScaleView> {
   int totalPrice = 245780000;
   String? weightInfo;
   CalibrationInfo calInfo = CalibrationInfo();
-  List<SaleData> saleData = [
+  List<SaleData> sales = [
     SaleData()
       ..itemCode = '1000'
-      ..description = 'خیار'
+      ..description = 'potato'
       ..itemType = 1
       ..totalPrice = 25800
       ..tax = 10
       ..unitPrice = 1250
       ..weight = 100
-      ..quantity = 0,
+      ..quantity = 93,
     SaleData()
       ..itemCode = '1001'
-      ..description = 'گوجه'
+      ..description = 'banana'
       ..itemType = 2
       ..totalPrice = 45000
       ..tax = 10
@@ -48,16 +48,16 @@ class _ScaleViewState extends State<ScaleView> {
       ..quantity = 5,
     SaleData()
       ..itemCode = '1002'
-      ..description = 'سیب زمینی و گوجه سبز اصلی'
+      ..description = 'orange'
       ..itemType = 1
       ..totalPrice = 98000
       ..tax = 10
       ..unitPrice = 300
       ..weight = 40000
-      ..quantity = 0,
+      ..quantity = 148,
     SaleData()
       ..itemCode = '1003'
-      ..description = 'موز'
+      ..description = 'tizom'
       ..itemType = 2
       ..totalPrice = 14700
       ..tax = 10
@@ -67,24 +67,24 @@ class _ScaleViewState extends State<ScaleView> {
   ];
 
   SaleData testSaleData = SaleData()
-    ..itemCode = '1004'
-    ..description = 'پرتقال'
+    ..itemCode = '5554443336'
+    ..description = 'qwe rtyuiop asdfdrtgt yertgert gertert6 5436 666j'
     ..itemType = 1
-    ..totalPrice = 23300
-    ..tax = 7
-    ..unitPrice = 9800000
+    ..totalPrice = 100000000
+    ..tax = 10
+    ..unitPrice = 10000000
     ..weight = 77889900
-    ..quantity = 5;
+    ..quantity = 1000000;
 
   void tare() {
     setState(() {
-      saleData.add(testSaleData);
+      sales.add(testSaleData);
     });
   }
 
   void remove() {
     setState(() {
-      saleData.remove(testSaleData);
+      sales.remove(testSaleData);
     });
   }
 
@@ -144,7 +144,7 @@ class _ScaleViewState extends State<ScaleView> {
                                       weightCustomerTasks: weightCustomerTasks!),
                                   SaleTransactionBar(),
                                   SaleTransactionInfo(),
-                                  SaleGrid(saleData: saleData,),
+                                  SaleGrid(sales: sales),
                                   InvoiceComplitionTasks(),
                                 ],
                               ),
