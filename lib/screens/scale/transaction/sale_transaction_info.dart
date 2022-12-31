@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_scale/util/constant.dart';
+import 'package:tech_scale/utils/constant.dart';
 
 class SaleTransactionInfo extends StatelessWidget {
   const SaleTransactionInfo({Key? key}) : super(key: key);

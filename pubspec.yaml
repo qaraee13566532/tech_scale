@@ -31,7 +31,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding
@@ -46,7 +48,10 @@ dependencies:
   font_awesome_flutter: ^10.3.0
   badges: ^2.0.3
   flutter_svg: ^1.1.6
-  #desktop_window: ^0.4.0
+
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +73,7 @@ flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  generate: true
   uses-material-design: true
 
   assets:
@@ -106,3 +112,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+

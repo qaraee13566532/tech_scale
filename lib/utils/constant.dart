@@ -18,9 +18,19 @@ const kSaleTransactionBar = BoxDecoration(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-      kSaleTransactionBarGradiantBegin,
-      kSaleTransactionBarGradiantEnd
-    ]));
+          kSaleTransactionBarGradiantBegin,
+          kSaleTransactionBarGradiantEnd
+        ]));
+const kSaleGridBegin = Color(0xffF0F0F0);
+const kSaleGridEnd = Color(0xff97AEDD);
+const kSaleGrid = BoxDecoration(
+    gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          kSaleGridBegin,
+          kSaleGridEnd
+        ]));
 
 const kSettingBarGradiantBegin = Color(0xffE3EEFC);
 const kSettingBarGradiantEnd = Color(0xffBBD6F8);
@@ -41,6 +51,13 @@ const kWeightCardTitleStyle = TextStyle(
     decoration: TextDecoration.none,
     fontSize: 20,
     color: Color(0xffF7F7F7));
+
+const kSaleGridHeaderStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontFamily: 'BNazanin',
+    decoration: TextDecoration.none,
+    fontSize: 18,
+    color: Colors.black);
 
 var kWeightValueStyle = GoogleFonts.oswald(
     fontWeight: FontWeight.normal,

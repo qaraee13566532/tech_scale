@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
-import 'package:tech_scale/views/scale/Invoice_completion/invoice_complition_tasks.dart';
-import 'package:tech_scale/views/scale/function_keys.dart';
-import 'package:tech_scale/views/scale/notofication_bar.dart';
-import 'package:tech_scale/views/scale/sale/sale_grid.dart';
-import 'package:tech_scale/views/scale/setting_bar.dart';
-import 'package:tech_scale/views/scale/tasks_layout/taskpad/search.dart';
-import 'package:tech_scale/views/scale/tasks_layout/taskpad/taskpad.dart';
-import 'package:tech_scale/views/scale/transaction/sale_transaction_bar.dart';
-import 'package:tech_scale/views/scale/transaction/sale_transaction_info.dart';
-import 'package:tech_scale/views/scale/weight/weight_window.dart';
+  import 'package:tech_scale/screens/scale/Invoice_completion/invoice_complition_tasks.dart';
+import 'package:tech_scale/screens/scale/function_keys.dart';
+import 'package:tech_scale/screens/scale/notofication_bar.dart';
+import 'package:tech_scale/screens/scale/sale/sale_grid.dart';
+import 'package:tech_scale/screens/scale/setting_bar.dart';
+import 'package:tech_scale/screens/scale/tasks_layout/taskpad/search.dart';
+import 'package:tech_scale/screens/scale/tasks_layout/taskpad/taskpad.dart';
+import 'package:tech_scale/screens/scale/transaction/sale_transaction_bar.dart';
+import 'package:tech_scale/screens/scale/transaction/sale_transaction_info.dart';
+import 'package:tech_scale/screens/scale/weight/weight_window.dart';
 
-class ScaleView extends StatefulWidget {
-  const ScaleView({Key? key}) : super(key: key);
+class ScaleScreen extends StatefulWidget {
+  const ScaleScreen({Key? key}) : super(key: key);
 
   @override
-  State<ScaleView> createState() => _ScaleViewState();
+  State<ScaleScreen> createState() => _ScaleScreenState();
 }
 
-class _ScaleViewState extends State<ScaleView> {
+class _ScaleScreenState extends State<ScaleScreen> {
   bool showFnLayout = true;
   int weightValue = 230670;
   int tareValue = 100800;
@@ -30,7 +30,7 @@ class _ScaleViewState extends State<ScaleView> {
   List<SaleData> sales = [
     SaleData()
       ..itemCode = '1000'
-      ..description = 'potato'
+      ..description = 'سیب'
       ..itemType = 1
       ..totalPrice = 25800
       ..tax = 10
@@ -39,7 +39,7 @@ class _ScaleViewState extends State<ScaleView> {
       ..quantity = 93,
     SaleData()
       ..itemCode = '1001'
-      ..description = 'banana'
+      ..description = 'چجرمک'
       ..itemType = 2
       ..totalPrice = 45000
       ..tax = 10
@@ -48,7 +48,7 @@ class _ScaleViewState extends State<ScaleView> {
       ..quantity = 5,
     SaleData()
       ..itemCode = '1002'
-      ..description = 'orange'
+      ..description = 'انبه'
       ..itemType = 1
       ..totalPrice = 98000
       ..tax = 10
@@ -57,7 +57,7 @@ class _ScaleViewState extends State<ScaleView> {
       ..quantity = 148,
     SaleData()
       ..itemCode = '1003'
-      ..description = 'tizom'
+      ..description = 'نارنگی'
       ..itemType = 2
       ..totalPrice = 14700
       ..tax = 10

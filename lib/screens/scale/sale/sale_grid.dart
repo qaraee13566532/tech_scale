@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
-import 'package:tech_scale/util/constant.dart';
+import 'package:tech_scale/utils/constant.dart';
 
 class SaleGrid extends StatefulWidget {
   final List<SaleData> sales;
@@ -26,7 +26,19 @@ class _SaleGridState extends State<SaleGrid> {
           color: Colors.white,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
-            child: buildDataTable(),
+            child: Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 30,
+                  decoration: kSaleGrid,
+                ),
+                Container(
+                  width: double.infinity,
+                  child: buildDataTable(),
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -36,12 +48,13 @@ class _SaleGridState extends State<SaleGrid> {
   buildDataTable() {
     final columns = ['کد کالا', 'نام کالا', 'مقدار', 'فی', 'مالیات', 'قیمت'];
     return DataTable(
-        headingTextStyle: kWeightCardTitleStyle.copyWith(
-            color: Colors.black, fontWeight: FontWeight.normal),
+        headingTextStyle:kSaleGridHeaderStyle,
         sortAscending: isAscending,
         sortColumnIndex: sortColumnIndex,
         columns: getColumns(columns),
         columnSpacing: 10,
+        headingRowHeight: 30,
+        dataRowHeight: 40,
         rows: getRows(widget.sales));
   }
 
@@ -87,13 +100,13 @@ class _SaleGridState extends State<SaleGrid> {
     switch (columnIndex) {
       case 0:
         widget.sales.sort((sale1, sale2) => ascending
-            ? sale1.itemCode.compareTo(sale2.itemCode)
-            : sale2.itemCode.compareTo(sale1.itemCode));
+            ? sale1.itemCode.toLowerCase().compareTo(sale2.itemCode.toLowerCase())
+            : sale2.itemCode.toLowerCase().compareTo(sale1.itemCode.toLowerCase()));
         break;
       case 1:
         widget.sales.sort((sale1, sale2) => ascending
-            ? sale1.description!.compareTo(sale2.description!)
-            : sale2.description!.compareTo(sale1.description!));
+            ? sale1.description!.toLowerCase().compareTo(sale2.description!.toLowerCase())
+            : sale2.description!.toLowerCase().compareTo(sale1.description!.toLowerCase()));
         break;
       case 2:
         widget.sales.sort((sale1, sale2) => ascending

@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:tech_scale/util/constant.dart';
+import 'package:tech_scale/utils/constant.dart';
 
 class WeightBoxCard extends StatelessWidget {
   final int? value;

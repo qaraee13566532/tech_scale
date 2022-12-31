@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tech_scale/model/weight/calibration.dart';
-import 'package:tech_scale/util/constant.dart';
-import 'package:tech_scale/views/scale/weight/weight_box_card.dart';
-import 'package:tech_scale/views/scale/weight_customer_layout/weight_customer_layout.dart';
-import 'package:tech_scale/views/scale/weight_info/weight_scale_info.dart';
+import 'package:tech_scale/utils/constant.dart';
+import 'package:tech_scale/screens/scale/weight/weight_box_card.dart';
+import 'package:tech_scale/screens/scale/weight_customer_layout/weight_customer_layout.dart';
+import 'package:tech_scale/screens/scale/weight_info/weight_scale_info.dart';
 
 
 class WeighWindow extends StatelessWidget {

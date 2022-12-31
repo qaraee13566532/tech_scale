@@ -1,6 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:tech_scale/util/constant.dart';
+import 'package:tech_scale/utils/constant.dart';
 
 class WeightCustomerCard extends StatelessWidget {
   final Widget? widgetIcon;
@@ -31,9 +31,9 @@ class WeightCustomerCard extends StatelessWidget {
               position: BadgePosition.topStart(top: -10, start: 25),
               badgeContent: Text(
                 badgeValue.toString(),
-                style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold,color:Colors.white ),
               ),
-              badgeColor: Colors.blue,
+              badgeColor: Colors.blueAccent,
               child: Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: widgetIcon,

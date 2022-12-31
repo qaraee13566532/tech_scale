@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tech_scale/util/constant.dart';
-import 'package:tech_scale/views/scale/weight_info/weight_info_icons.dart';
+import 'package:tech_scale/utils/constant.dart';
+import 'package:tech_scale/screens/scale/weight_info/weight_info_icons.dart';
 
 class WeightScaleInfoCard extends StatelessWidget {
   final bool isStable, isTared, isZero;
