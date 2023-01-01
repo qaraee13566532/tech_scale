@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
-  import 'package:tech_scale/screens/scale/Invoice_completion/invoice_complition_tasks.dart';
-import 'package:tech_scale/screens/scale/function_keys.dart';
-import 'package:tech_scale/screens/scale/notofication_bar.dart';
-import 'package:tech_scale/screens/scale/sale/sale_grid.dart';
-import 'package:tech_scale/screens/scale/setting_bar.dart';
-import 'package:tech_scale/screens/scale/tasks_layout/taskpad/search.dart';
-import 'package:tech_scale/screens/scale/tasks_layout/taskpad/taskpad.dart';
-import 'package:tech_scale/screens/scale/transaction/sale_transaction_bar.dart';
-import 'package:tech_scale/screens/scale/transaction/sale_transaction_info.dart';
-import 'package:tech_scale/screens/scale/weight/weight_window.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_bar_section.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_data_section//transaction_section.dart';
+import 'package:tech_scale/screens/sale_screen/function_keys_section.dart';
+import 'package:tech_scale/screens/sale_screen/notofication_bar_section.dart';
+import 'package:tech_scale/screens/sale_screen/sale_grid_section.dart';
+import 'package:tech_scale/screens/sale_screen/setting_bar_section.dart';
+import 'package:tech_scale/screens/sale_screen/tasks_layout_section/taskpad/search.dart';
+import 'package:tech_scale/screens/sale_screen/tasks_layout_section/taskpad/taskpad.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_info_section.dart';
+import 'package:tech_scale/screens/sale_screen/weight_section//weight_section.dart';
 
-class ScaleScreen extends StatefulWidget {
-  const ScaleScreen({Key? key}) : super(key: key);
+class SaleScreen extends StatefulWidget {
+  const SaleScreen({Key? key}) : super(key: key);
 
   @override
-  State<ScaleScreen> createState() => _ScaleScreenState();
+  State<SaleScreen> createState() => _SaleScreenState();
 }
 
-class _ScaleScreenState extends State<ScaleScreen> {
+class _SaleScreenState extends State<SaleScreen> {
   bool showFnLayout = true;
   int weightValue = 230670;
   int tareValue = 100800;
@@ -98,12 +98,12 @@ class _ScaleScreenState extends State<ScaleScreen> {
     calInfo.weightFirstDivision = 1000;
     calInfo.weightSecondDivision = 2000;
     weightInfo = calInfo.makeDeviceInfo();
-    weightCustomerTasks!.add(tare);
-    weightCustomerTasks!.add(remove);
-    weightCustomerTasks!.add(remove);
-    weightCustomerTasks!.add(remove);
-    weightCustomerTasks!.add(remove);
-    weightCustomerTasks!.add(remove);
+    weightCustomerTasks.add(tare);
+    weightCustomerTasks.add(remove);
+    weightCustomerTasks.add(remove);
+    weightCustomerTasks.add(remove);
+    weightCustomerTasks.add(remove);
+    weightCustomerTasks.add(remove);
     super.initState();
   }
 
@@ -141,7 +141,7 @@ class _ScaleScreenState extends State<ScaleScreen> {
                                       unitPrice: unitPrice,
                                       totalPrice: totalPrice,
                                       weightInfo: weightInfo,
-                                      weightCustomerTasks: weightCustomerTasks!),
+                                      weightCustomerTasks: weightCustomerTasks),
                                   SaleTransactionBar(),
                                   SaleTransactionInfo(),
                                   SaleGrid(sales: sales),

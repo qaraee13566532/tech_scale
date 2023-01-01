@@ -1,9 +1,7 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tech_scale/utils/constant.dart';
-import 'package:tech_scale/screens/scale/weight_customer_layout/weight_customer_card.dart';
+import 'package:tech_scale/screens/sale_screen/weight_customer_section//weight_customer_card.dart';
 
 class WeightCustomerLayout extends StatelessWidget {
   final List<int> badgeValues;
