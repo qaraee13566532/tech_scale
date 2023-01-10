@@ -88,7 +88,7 @@ class _SaleScreenState extends State<SaleScreen> {
     });
   }
 
-  List<VoidCallback> weightCustomerTasks=[];
+  List<VoidCallback> weightCustomerTasks = [];
 
   @override
   void initState() {
@@ -142,7 +142,7 @@ class _SaleScreenState extends State<SaleScreen> {
                                       totalPrice: totalPrice,
                                       weightInfo: weightInfo,
                                       weightCustomerTasks: weightCustomerTasks),
-                                  SaleTransactionBar(),
+                                  TransactionBar(),
                                   SaleTransactionInfo(),
                                   SaleGrid(sales: sales),
                                   InvoiceComplitionTasks(),

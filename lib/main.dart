@@ -1,8 +1,7 @@
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
-import 'package:tech_scale/screens/sale_screen/sale_screen.dart';
-
+import 'package:tech_scale/app_routes.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
@@ -29,10 +28,9 @@ class _MyAppState extends State<MyApp> {
       locale: Platform.isWindows ? const Locale('fa', 'IR') : null,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: Platform.isWindows ? const Directionality(
-        textDirection: TextDirection.rtl,
-        child: SaleScreen(),
-      ) : const SaleScreen(),
+      initialRoute: AppRoutes.getInitialRoute(),
+      onGenerateRoute: (route) => AppRoutes.getRoute(route),
     );
   }
 }
+

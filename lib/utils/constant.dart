@@ -59,6 +59,31 @@ const kSaleGridHeaderStyle = TextStyle(
     fontSize: 18,
     color: Colors.black);
 
+const kIndicatorColor = Color(0xff3B70E5);
+const kTransactionBarDropDownBackgroundColor = Color(0xffF1E1BF);
+const kTransactionBarBoarderColor = Color(0xff7A8DB2);
+
+const kTransactionBarStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontFamily: 'BNazanin',
+    decoration: TextDecoration.none,
+    fontSize: 16,
+    color: kIndicatorColor);
+
+const kTransactionBarDropDownTextsStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontFamily: 'BNazanin',
+    decoration: TextDecoration.none,
+    fontSize: 16,
+    color: Colors.black);
+
+const kTransactionBarDateTimeStyle = TextStyle(
+    fontWeight: FontWeight.normal,
+    fontFamily: 'BNazanin',
+    decoration: TextDecoration.none,
+    fontSize: 16,
+    color: Colors.black);
+
 var kWeightValueStyle = GoogleFonts.oswald(
     fontWeight: FontWeight.normal,
     decoration: TextDecoration.none,
@@ -74,3 +99,11 @@ const List<String> weightSpec = ['', ''];
 var kBatteryIconStyle =BoxDecoration(
     color: Colors.blueAccent,
     borderRadius: BorderRadius.circular(8));
+
+const kTransactionBarGradiantBegin = Color(0xffFFFFFF);
+const kTransactionBarGradiantEnd = Color(0xffA3B3D2);
+const kTransactionBar = BoxDecoration(
+    gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [kTransactionBarGradiantBegin, kTransactionBarGradiantEnd]));

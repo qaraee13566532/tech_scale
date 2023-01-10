@@ -46,13 +46,13 @@ class _SaleGridState extends State<SaleGrid> {
   }
 
   buildDataTable() {
-    final columns = ['کد کالا', 'نام کالا', 'مقدار', 'فی', 'مالیات', 'قیمت'];
+    final columns = ['کد کالا', 'نام کالا', 'مقدار', 'فی', 'مالیات', 'جمع مبلغ'];
     return DataTable(
         headingTextStyle:kSaleGridHeaderStyle,
         sortAscending: isAscending,
         sortColumnIndex: sortColumnIndex,
         columns: getColumns(columns),
-        columnSpacing: 10,
+        columnSpacing: 5,
         headingRowHeight: 30,
         dataRowHeight: 40,
         rows: getRows(widget.sales));
@@ -91,7 +91,7 @@ class _SaleGridState extends State<SaleGrid> {
   getCells(List<dynamic> cells) => cells
       .map(
         (data) => DataCell(
-          Text('$data'),
+          Text('$data',style: TextStyle(fontFamily: 'BNazanin',fontSize: 18),),
         ),
       )
       .toList();

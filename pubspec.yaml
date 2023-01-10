@@ -48,6 +48,7 @@ dependencies:
   font_awesome_flutter: ^10.3.0
   badges: ^2.0.3
   flutter_svg: ^1.1.6
+  persian_datetime_picker: ^2.5.0
 
 
 
