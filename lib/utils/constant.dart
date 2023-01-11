@@ -77,7 +77,7 @@ const kTransactionBarDropDownTextsStyle = TextStyle(
     color: Colors.black);
 
 const kTransactionBarDateTimeStyle = TextStyle(
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.normal,
     fontFamily: 'BNazanin',
     decoration: TextDecoration.none,
     fontSize: 16,
@@ -107,18 +107,46 @@ const kTransactionBar = BoxDecoration(
 const kTransactionCardGradiantBegin = Color(0xffD3D3D3);
 const kTransactionCardGradiantEnd = Color(0xff989898);
 var kTransactionGrayCard = BoxDecoration(
-  border: Border.all(width: 2,color: const Color(0xff7A8DB2)),
+  border: Border.all(width: 0.5, color: const Color(0xff9D9D9D)),
   gradient: const LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
-      colors: [kTransactionBarGradiantBegin, kTransactionBarGradiantEnd]),
+      colors: [kTransactionCardGradiantBegin, kTransactionCardGradiantEnd]),
 );
 
 const kTransactionCardBlackGradiantBegin = Color(0xff484848);
 const kTransactionCardBlackGradiantEnd = Color(0xff030303);
-var  kTransactionBlackCard = BoxDecoration(
-    border: Border.all(width: 2,color: const Color(0xff7A8DB2)),
+var kTransactionBlackCard = BoxDecoration(
+    border: Border.all(width: 0.5, color: const Color(0xff676767)),
     gradient: const LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        colors: [kTransactionBarGradiantBegin, kTransactionBarGradiantEnd]));
+        colors: [
+          kTransactionCardBlackGradiantBegin,
+          kTransactionCardBlackGradiantEnd
+        ]));
+
+const kTransactionStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontFamily: 'BNazanin',
+  decoration: TextDecoration.none,
+  color: kIndicatorColor,
+  fontSize: 22,
+);
+
+const kTransactionTotalColor = Color(0xff36DA0C);
+const kTransactionTotalIndicatorColor = Color(0xff63B12E);
+const kTransactionTotalStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontFamily: 'BNazanin',
+  decoration: TextDecoration.none,
+  color: kTransactionTotalColor,
+  fontSize: 22,
+);
+
+const kTransactionTaskDescriptionStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontFamily: 'BNazanin',
+    decoration: TextDecoration.none,
+    fontSize: 14,
+    color: Colors.black);
