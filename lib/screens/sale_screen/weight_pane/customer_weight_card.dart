@@ -2,13 +2,13 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:tech_scale/utils/constant.dart';
 
-class WeightCustomerCard extends StatelessWidget {
+class CustomerWeightCard extends StatelessWidget {
   final Widget? widgetIcon;
   final int badgeValue;
   final bool hasBadge;
   final VoidCallback? onTap;
 
-  const WeightCustomerCard(
+  const CustomerWeightCard(
       {Key? key,
       this.widgetIcon,
       required this.badgeValue,

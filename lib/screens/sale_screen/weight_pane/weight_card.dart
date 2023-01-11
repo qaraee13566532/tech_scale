@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tech_scale/utils/constant.dart';
 
-class WeightBoxCard extends StatelessWidget {
+class WeightCard extends StatelessWidget {
   final int? value;
   final String? title;
   final int? fractionDigits;
 
-  const WeightBoxCard(
+  const WeightCard(
       {Key? key, required this.value, required this.title, this.fractionDigits})
       : super(key: key);
 

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_bar_section.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_data_section//transaction_section.dart';
-import 'package:tech_scale/screens/sale_screen/function_keys_section.dart';
-import 'package:tech_scale/screens/sale_screen/notofication_bar_section.dart';
-import 'package:tech_scale/screens/sale_screen/sale_grid_section.dart';
-import 'package:tech_scale/screens/sale_screen/setting_bar_section.dart';
-import 'package:tech_scale/screens/sale_screen/tasks_layout_section/taskpad/search.dart';
-import 'package:tech_scale/screens/sale_screen/tasks_layout_section/taskpad/taskpad.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_info_section.dart';
-import 'package:tech_scale/screens/sale_screen/weight_section//weight_section.dart';
+import 'package:tech_scale/screens/sale_screen/search.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_bar.dart';
+import 'package:tech_scale/screens/sale_screen/function_bar.dart';
+import 'package:tech_scale/screens/sale_screen/status_bar.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_grid.dart';
+import 'package:tech_scale/screens/sale_screen/setting_bar.dart';
+import 'package:tech_scale/screens/sale_screen/task_pane/taskpad.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_details.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_tasks.dart';
+import 'package:tech_scale/screens/sale_screen/weight_pane/weight_pane.dart';
+
 
 class SaleScreen extends StatefulWidget {
   const SaleScreen({Key? key}) : super(key: key);
@@ -135,25 +136,28 @@ class _SaleScreenState extends State<SaleScreen> {
                               flex: 2,
                               child: Column(
                                 children: [
-                                  WeighWindow(
+                                  WeightPane(
                                       weightValue: weightValue,
                                       tareValue: tareValue,
                                       unitPrice: unitPrice,
                                       totalPrice: totalPrice,
                                       weightInfo: weightInfo,
                                       weightCustomerTasks: weightCustomerTasks),
-                                  TransactionBar(),
-                                  SaleTransactionInfo(),
-                                  SaleGrid(sales: sales),
-                                  InvoiceComplitionTasks(),
+                                  const TransactionBar(),
+                                  TransactionDetail(
+                                      comment:
+                                          '  عزیزان من از اینجا میوه های بسیار عالی و درجه یک بخرید',
+                                      referenceNo: 10045200280.toString()),
+                                  TransactionGrid(sales: sales),
+                                  const TransactionTasks(),
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      showFnLayout ? const FunctionKeys() : Container(),
-                      const NotificationBar(),
+                      showFnLayout ? const FunctionBar() : Container(),
+                      const StatusBar(),
                     ],
                   )),
             ],

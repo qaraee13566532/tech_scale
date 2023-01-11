@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class InvoiceComplitionTasks extends StatelessWidget {
-  const InvoiceComplitionTasks({Key? key}) : super(key: key);
+class TransactionTasks extends StatelessWidget {
+  const TransactionTasks({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class WeightInfoIconsSvg extends StatelessWidget {
+class IndicatorIcon extends StatelessWidget {
   final double leftMargin, rightMargin, topMargin, bottomMargin;
   final String iconFile;
   final bool enable;
 
-  const WeightInfoIconsSvg(
+  const IndicatorIcon(
       {Key? key,
       required this.iconFile,
       required this.topMargin,

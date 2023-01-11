@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FunctionKeys extends StatelessWidget {
-  const FunctionKeys({Key? key}) : super(key: key);
+class FunctionBar extends StatelessWidget {
+  const FunctionBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

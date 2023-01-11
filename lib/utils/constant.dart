@@ -7,6 +7,7 @@ const kBackgroundSaleTransactionInfoColor = Color(0xffABBBD7);
 const kBackgroundSaleTransactionInfoBorderColor = Color(0xffDEDFE2);
 var kBackgroundSaleTransactionInfoBorder =
     Border.all(width: 1, color: kBackgroundSaleTransactionInfoBorderColor);
+
 var kBackgroundSaleTransactionInfo = BoxDecoration(
     border: kBackgroundSaleTransactionInfoBorder,
     color: kBackgroundSaleTransactionInfoColor);
@@ -18,19 +19,17 @@ const kSaleTransactionBar = BoxDecoration(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          kSaleTransactionBarGradiantBegin,
-          kSaleTransactionBarGradiantEnd
-        ]));
+      kSaleTransactionBarGradiantBegin,
+      kSaleTransactionBarGradiantEnd
+    ]));
+
 const kSaleGridBegin = Color(0xffF0F0F0);
 const kSaleGridEnd = Color(0xff97AEDD);
 const kSaleGrid = BoxDecoration(
     gradient: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        colors: [
-          kSaleGridBegin,
-          kSaleGridEnd
-        ]));
+        colors: [kSaleGridBegin, kSaleGridEnd]));
 
 const kSettingBarGradiantBegin = Color(0xffE3EEFC);
 const kSettingBarGradiantEnd = Color(0xffBBD6F8);
@@ -78,7 +77,7 @@ const kTransactionBarDropDownTextsStyle = TextStyle(
     color: Colors.black);
 
 const kTransactionBarDateTimeStyle = TextStyle(
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
     fontFamily: 'BNazanin',
     decoration: TextDecoration.none,
     fontSize: 16,
@@ -90,20 +89,36 @@ var kWeightValueStyle = GoogleFonts.oswald(
     color: Color(0xffF7F7F7));
 
 var kWeightScaleInfo = BoxDecoration(
-    color: const Color(0xff94A5C9),
-    borderRadius: BorderRadius.circular(8),
+  color: const Color(0xff94A5C9),
+  borderRadius: BorderRadius.circular(8),
 );
 
-const List<String> weightSpec = ['', ''];
-
-var kBatteryIconStyle =BoxDecoration(
-    color: Colors.blueAccent,
-    borderRadius: BorderRadius.circular(8));
+var kBatteryIconStyle = BoxDecoration(
+    color: Colors.blueAccent, borderRadius: BorderRadius.circular(8));
 
 const kTransactionBarGradiantBegin = Color(0xffFFFFFF);
 const kTransactionBarGradiantEnd = Color(0xffA3B3D2);
 const kTransactionBar = BoxDecoration(
     gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [kTransactionBarGradiantBegin, kTransactionBarGradiantEnd]));
+
+const kTransactionCardGradiantBegin = Color(0xffD3D3D3);
+const kTransactionCardGradiantEnd = Color(0xff989898);
+var kTransactionGrayCard = BoxDecoration(
+  border: Border.all(width: 2,color: const Color(0xff7A8DB2)),
+  gradient: const LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [kTransactionBarGradiantBegin, kTransactionBarGradiantEnd]),
+);
+
+const kTransactionCardBlackGradiantBegin = Color(0xff484848);
+const kTransactionCardBlackGradiantEnd = Color(0xff030303);
+var  kTransactionBlackCard = BoxDecoration(
+    border: Border.all(width: 2,color: const Color(0xff7A8DB2)),
+    gradient: const LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [kTransactionBarGradiantBegin, kTransactionBarGradiantEnd]));

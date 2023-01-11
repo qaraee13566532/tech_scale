@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tech_scale/screens/sale_screen/device_identifier_section/weight_indicator_icons.dart';
+import 'package:tech_scale/screens/sale_screen/weight_pane/indicator_icon.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 
-class WeightScaleInfoCard extends StatelessWidget {
+class DevicePane extends StatelessWidget {
   final bool isStable, isTared, isZero;
   final IconData iconName;
   final String weightInfo;
 
-  const WeightScaleInfoCard({
+  const DevicePane({
     Key? key,
     required this.iconName,
     required this.isStable,
@@ -31,7 +31,7 @@ class WeightScaleInfoCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const WeightInfoIconsSvg(
+                    const IndicatorIcon(
                       iconFile: 'assets/icons/Stable.svg',
                       topMargin: 4,
                       bottomMargin: 4,
@@ -39,7 +39,7 @@ class WeightScaleInfoCard extends StatelessWidget {
                       rightMargin: 5,
                       enable: false,
                     ),
-                    const WeightInfoIconsSvg(
+                    const IndicatorIcon(
                       iconFile: 'assets/icons/Tare.svg',
                       topMargin: 1,
                       bottomMargin: 1,
@@ -47,7 +47,7 @@ class WeightScaleInfoCard extends StatelessWidget {
                       rightMargin: 5,
                       enable: true,
                     ),
-                    const WeightInfoIconsSvg(
+                    const IndicatorIcon(
                       iconFile: 'assets/icons/Zero.svg',
                       topMargin: 4,
                       bottomMargin: 4,

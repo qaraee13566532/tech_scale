@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/utils/constant.dart';
 
-class SaleGrid extends StatefulWidget {
+class TransactionGrid extends StatefulWidget {
   final List<SaleData> sales;
 
-  const SaleGrid({Key? key, required this.sales}) : super(key: key);
+  const TransactionGrid({Key? key, required this.sales}) : super(key: key);
 
   @override
-  State<SaleGrid> createState() => _SaleGridState();
+  State<TransactionGrid> createState() => _SaleGridState();
 }
 
-class _SaleGridState extends State<SaleGrid> {
+class _SaleGridState extends State<TransactionGrid> {
   int sortColumnIndex = 0;
   bool isAscending = true;
   int rowCounter = 0;

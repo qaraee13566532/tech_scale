@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tech_scale/screens/sale_screen/weight_pane/customer_weight_card.dart';
 import 'package:tech_scale/utils/constant.dart';
-import 'package:tech_scale/screens/sale_screen/weight_customer_section//weight_customer_card.dart';
 
-class WeightCustomerLayout extends StatelessWidget {
+
+class CustomerWeightFunctions extends StatelessWidget {
   final List<int> badgeValues;
   final List<VoidCallback> weightCustomerTasks;
-  const WeightCustomerLayout({Key? key, required this.badgeValues,required this.weightCustomerTasks})
+  const CustomerWeightFunctions({Key? key, required this.badgeValues,required this.weightCustomerTasks})
       : super(key: key);
 
   @override
@@ -16,7 +17,7 @@ class WeightCustomerLayout extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List.generate(
           6,
-          (index) => WeightCustomerCard(
+          (index) => CustomerWeightCard(
             widgetIcon:
                 index == 0
                     ? Text(

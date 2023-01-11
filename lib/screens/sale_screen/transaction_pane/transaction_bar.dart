@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 import 'package:tech_scale/utils/constant.dart';
@@ -19,7 +21,7 @@ class _TransactionBarState extends State<TransactionBar> {
   ];
 
   String selectedItem = dropDownItems[2];
-  String? formattedDate;
+  String formattedDate = "";
 
   String format1(Date d) {
     final f = d.formatter;
@@ -27,14 +29,21 @@ class _TransactionBarState extends State<TransactionBar> {
     return '  ${f.wN}  ${f.d} ${f.mN} ${f.yyyy}';
   }
 
+  getDate() => format1(Jalali.fromDateTime(DateTime.now()));
+
+  @override
+  void initState() {
+    formattedDate = getDate();
+    Timer.periodic(Duration(minutes: 1), (timer) {
+      setState(() {
+        formattedDate = getDate();
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    DateTime dt = DateTime.now();
-    Jalali jal = Jalali.fromDateTime(dt);
-    //   formattedDate =
-    //       '${format1(jal)}  ${DateFormat('hh:mm').format(DateTime.now())} ${DateFormat('a').format(dt) == 'AM' ? 'صبح' : 'عصر'}';
-    formattedDate =format1(jal);
-
     return Container(
       height: 30,
       decoration: kSaleTransactionBar,
@@ -53,7 +62,7 @@ class _TransactionBarState extends State<TransactionBar> {
                 width: double.infinity,
                 height: double.infinity,
                 child: Text(
-                  formattedDate!,
+                  formattedDate,
                   style: kTransactionBarDateTimeStyle,
                 ),
               ),
