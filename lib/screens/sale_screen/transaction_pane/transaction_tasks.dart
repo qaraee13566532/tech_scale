@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/total_pane.dart';
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_card.dart';
 import 'package:tech_scale/utils/constant.dart';
 
@@ -12,12 +13,15 @@ class TransactionTasks extends StatelessWidget {
       height: 85,
       child: Row(
         children: [
-          Expanded(
-            child: TransactionCard(
-                cardDecoration: kTransactionBlackCard,
-                cardName: 'جمع کل',
-                value: '123456789',
-                textStyle: kTransactionTotalStyle,iconColor: kTransactionTotalIndicatorColor),
+          TransactionCard(
+            cardDecoration: kTransactionBlackCard,
+            cardName: 'جمع کل',
+            value: '123456789',
+            textStyle: kTransactionTotalStyle,
+            iconColor: kTransactionTotalIndicatorColor,
+            onTap: () {
+              TotalPane.showCustomDialog(context);
+            },
           ),
           Container(
             color: Color(0xff636363),
@@ -29,13 +33,12 @@ class TransactionTasks extends StatelessWidget {
             height: double.infinity,
             width: 1.5,
           ),
-          Expanded(
-            child: TransactionCard(
-              cardDecoration: kTransactionGrayCard,
-              cardName: 'حمل و نقل',
-              cardDescription: 'انتخاب حمل و نقل ...',
-              iconColor: kIndicatorColor,
-            ),
+          TransactionCard(
+            cardDecoration: kTransactionGrayCard,
+            cardName: 'حمل و نقل',
+            cardDescription: 'انتخاب حمل و نقل ...',
+            iconColor: kIndicatorColor,
+            onTap: () {},
           ),
           Container(
             color: Color(0xff636363),
@@ -47,13 +50,12 @@ class TransactionTasks extends StatelessWidget {
             height: double.infinity,
             width: 1.5,
           ),
-          Expanded(
-            child: TransactionCard(
-              cardDecoration: kTransactionGrayCard,
-              cardName: 'مشتری',
-              cardDescription: 'انتخاب مشتری ...',
-              iconColor: kIndicatorColor,
-            ),
+          TransactionCard(
+            cardDecoration: kTransactionGrayCard,
+            cardName: 'مشتری',
+            cardDescription: 'انتخاب مشتری ...',
+            iconColor: kIndicatorColor,
+            onTap: () {},
           ),
         ],
       ),

@@ -22,6 +22,7 @@ class _TransactionBarState extends State<TransactionBar> {
 
   String selectedItem = dropDownItems[2];
   String formattedDate = "";
+  bool onMouseHoverColor = false;
 
   String format1(Date d) {
     final f = d.formatter;
@@ -79,22 +80,34 @@ class _TransactionBarState extends State<TransactionBar> {
                   ),
                 ),
                 child: DecoratedBox(
-                  decoration: kTransactionBar,
+                  decoration: onMouseHoverColor
+                      ? kTransactionBarOnMouseHover
+                      : kTransactionBar,
                   child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      iconEnabledColor: kIndicatorColor,
-                      dropdownColor: kTransactionBarDropDownBackgroundColor,
-                      selectedItemBuilder: (_) => getMenuWidgets(dropDownItems),
-                      borderRadius: const BorderRadius.all(Radius.circular(5)),
-                      value: selectedItem,
-                      iconSize: 24,
-                      isExpanded: true,
-                      items: getDropDownItems(dropDownItems),
-                      onChanged: (value) {
-                        setState(() {
-                          selectedItem = value!;
-                        });
+                    child: MouseRegion(
+                      onHover: (event) {
+                        setState(() => onMouseHoverColor = true);
                       },
+                      onExit: (event) {
+                        setState(() => onMouseHoverColor = false);
+                      },
+                      child: DropdownButton<String>(
+                        iconEnabledColor: kIndicatorColor,
+                        dropdownColor: kTransactionBarDropDownBackgroundColor,
+                        selectedItemBuilder: (_) =>
+                            getMenuWidgets(dropDownItems),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(5)),
+                        value: selectedItem,
+                        iconSize: 24,
+                        isExpanded: true,
+                        items: getDropDownItems(dropDownItems),
+                        onChanged: (value) {
+                          setState(() {
+                            selectedItem = value!;
+                          });
+                        },
+                      ),
                     ),
                   ),
                 ),

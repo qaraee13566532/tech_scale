@@ -78,9 +78,16 @@ const kTransactionBarDropDownTextsStyle = TextStyle(
 
 const kTransactionBarDateTimeStyle = TextStyle(
     fontWeight: FontWeight.normal,
-    fontFamily: 'BNazanin',
+    fontFamily: 'BHoma',
     decoration: TextDecoration.none,
     fontSize: 16,
+    color: Colors.black);
+
+const kTransactionDetailStyle = TextStyle(
+    fontWeight: FontWeight.normal,
+    fontFamily: 'BNazanin',
+    decoration: TextDecoration.none,
+    fontSize: 15,
     color: Colors.black);
 
 var kWeightValueStyle = GoogleFonts.oswald(
@@ -99,10 +106,25 @@ var kBatteryIconStyle = BoxDecoration(
 const kTransactionBarGradiantBegin = Color(0xffFFFFFF);
 const kTransactionBarGradiantEnd = Color(0xffA3B3D2);
 const kTransactionBar = BoxDecoration(
-    gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [kTransactionBarGradiantBegin, kTransactionBarGradiantEnd]));
+  gradient: LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [kTransactionBarGradiantBegin, kTransactionBarGradiantEnd],
+  ),
+);
+
+const kTransactionBarGradiantOnMouseHoverBegin = Color(0xfff0d7a1);
+const kTransactionBarGradiantOnMouseHoverEnd = Color(0xffe9c473);
+const kTransactionBarOnMouseHover = BoxDecoration(
+  gradient: LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      kTransactionBarGradiantOnMouseHoverBegin,
+      kTransactionBarGradiantOnMouseHoverEnd
+    ],
+  ),
+);
 
 const kTransactionCardGradiantBegin = Color(0xffD3D3D3);
 const kTransactionCardGradiantEnd = Color(0xff989898);
@@ -134,6 +156,8 @@ const kTransactionStyle = TextStyle(
   fontSize: 22,
 );
 
+const kSelectedRowColor =  Color(0xFF0078d7);
+
 const kTransactionTotalColor = Color(0xff36DA0C);
 const kTransactionTotalIndicatorColor = Color(0xff63B12E);
 const kTransactionTotalStyle = TextStyle(
@@ -150,3 +174,52 @@ const kTransactionTaskDescriptionStyle = TextStyle(
     decoration: TextDecoration.none,
     fontSize: 14,
     color: Colors.black);
+
+const kCellTextStyle = TextStyle(fontFamily: 'BNazanin', fontSize: 16);
+
+const kTransactionRowGradiantBegin = Color(0xff9bb1d7);
+const kTransactionRowGradiantEnd = Color(0xffcbdef1);
+const kTransactionRowDecoration = BoxDecoration(
+  gradient: LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      kTransactionRowGradiantBegin,
+      kTransactionRowGradiantEnd,
+    ],
+  ),
+);
+
+const kTotalPaneLabel = TextStyle(
+  fontFamily: 'BNazanin',
+  fontSize: 26,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+const kTotalPaneBegin = Color(0xff93acdc);
+const kTotalPaneMid = Color(0xffffffff);
+const kTotalPaneEnd = Color(0xff93acdc);
+var kTotalPaneDecoration = BoxDecoration(
+  color: Colors.white,
+  borderRadius: BorderRadius.circular(8),
+  border: Border.all(width: 2, color: const Color(0xffbfcdd8)),
+  boxShadow: const [
+    BoxShadow(
+      color: Colors.black,
+      blurRadius: 2,
+      offset: Offset(2, 3), // changes position of shadow
+    ),
+  ],
+  gradient: const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      kTotalPaneBegin,
+      kTotalPaneMid,
+      kTotalPaneMid,
+      kTotalPaneEnd,
+    ],
+    stops: [0.0, 0.2, 0.8, 1],
+  ),
+);

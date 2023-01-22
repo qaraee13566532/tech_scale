@@ -16,22 +16,22 @@ class TransactionDetail extends StatelessWidget {
         children: [
           const Text(
             '  شماره مرجع :',
-            style: kTransactionBarDateTimeStyle,
+            style: kTransactionDetailStyle,
           ),
           Expanded(
             child: Text(
               referenceNo ?? '',
-              style: kTransactionBarDateTimeStyle,
+              style: kTransactionDetailStyle,
             ),
           ),
           const Text(
             'شرح :',
-            style: kTransactionBarDateTimeStyle,
+            style: kTransactionDetailStyle,
           ),
           Expanded(
             child: Text(
               comment ?? '',
-              style: kTransactionBarDateTimeStyle,
+              style: kTransactionDetailStyle,
               overflow: TextOverflow.ellipsis,
             ),
           ),

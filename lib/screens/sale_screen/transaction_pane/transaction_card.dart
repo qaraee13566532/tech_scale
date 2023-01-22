@@ -9,7 +9,7 @@ class TransactionCard extends StatelessWidget {
       this.cardDescription,
       this.value,
       this.textStyle,
-      required this.iconColor})
+      required this.iconColor,required this.onTap})
       : super(key: key);
   final String cardName;
   final String? cardDescription;
@@ -17,44 +17,103 @@ class TransactionCard extends StatelessWidget {
   final String? value;
   final TextStyle? textStyle;
   final Color? iconColor;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: cardDecoration,
-        child: Column(
-          crossAxisAlignment:
-              value == null ? CrossAxisAlignment.start : CrossAxisAlignment.end,
-          children: [
-            ListTile(
-              leading: Text(
-                cardName,
-                style: textStyle ?? kTransactionStyle,
-              ),
-              trailing: Icon(
-                color: iconColor!,
-                Icons.arrow_drop_up,
-                size: 36,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: value == null
-                  ? Text(
-                      cardDescription ?? '',
-                      style: kTransactionTaskDescriptionStyle,
-                      textAlign: TextAlign.right,
-                    )
-                  : Text(
-                      value ?? '',
+    return Expanded(
+      child: GestureDetector(
+        onTap: (){
+          double cc= MediaQuery.of(context).size.width;
+          print(cc);
+        },
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Scaffold(
+            body: Container(
+              decoration: cardDecoration,
+              child: Column(
+                crossAxisAlignment: value == null
+                    ? CrossAxisAlignment.start
+                    : CrossAxisAlignment.end,
+                children: [
+                  ListTile(
+                    mouseCursor: SystemMouseCursors.click,
+                    leading: Text(
+                      cardName,
                       style: textStyle ?? kTransactionStyle,
-                      textAlign: TextAlign.left,
                     ),
+                    trailing: Icon(
+                      color: iconColor!,
+                      Icons.arrow_drop_up,
+                      size: 36,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: value == null
+                        ? Text(
+                            cardDescription ?? '',
+                            style: kTransactionTaskDescriptionStyle,
+                            textAlign: TextAlign.right,
+                          )
+                        : Text(
+                            value ?? '',
+                            style: textStyle ?? kTransactionStyle,
+                            textAlign: TextAlign.left,
+                          ),
+                  ),
+                ],
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );
   }
+/*
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GestureDetector(
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Container(
+            decoration: cardDecoration,
+            child: Column(
+              crossAxisAlignment:
+                  value == null ? CrossAxisAlignment.start : CrossAxisAlignment.end,
+              children: [
+                ListTile(
+                  leading: Text(
+                    cardName,
+                    style: textStyle ?? kTransactionStyle,
+                  ),
+                  trailing: Icon(
+                    color: iconColor!,
+                    Icons.arrow_drop_up,
+                    size: 36,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: value == null
+                      ? Text(
+                          cardDescription ?? '',
+                          style: kTransactionTaskDescriptionStyle,
+                          textAlign: TextAlign.right,
+                        )
+                      : Text(
+                          value ?? '',
+                          style: textStyle ?? kTransactionStyle,
+                          textAlign: TextAlign.left,
+                        ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }*/
 }

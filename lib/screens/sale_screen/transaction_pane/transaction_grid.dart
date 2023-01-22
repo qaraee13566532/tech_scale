@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/data_table.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_cell.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class TransactionGrid extends StatefulWidget {
@@ -15,30 +17,31 @@ class _SaleGridState extends State<TransactionGrid> {
   int sortColumnIndex = 0;
   bool isAscending = true;
   int rowCounter = 0;
+  int selectedIndex = 3;
+  bool haveKey = false;
+  bool isSelected = false;
+  bool isExpanded = true;
 
   @override
   Widget build(BuildContext context) {
-    rowCounter=0;
+    rowCounter = 0;
     return Expanded(
       child: Scaffold(
         body: Container(
           width: double.infinity,
           color: Colors.white,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 30,
-                  decoration: kSaleGrid,
-                ),
-                Container(
-                  width: double.infinity,
-                  child: buildDataTable(),
-                )
-              ],
-            ),
+          child: Stack(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 30,
+                decoration: kSaleGrid,
+              ),
+              Container(
+                width: double.infinity,
+                child: buildDataTable(),
+              )
+            ],
           ),
         ),
       ),
@@ -46,20 +49,30 @@ class _SaleGridState extends State<TransactionGrid> {
   }
 
   buildDataTable() {
-    final columns = ['کد کالا', 'نام کالا', 'مقدار', 'فی', 'مالیات', 'جمع مبلغ'];
-    return DataTable(
-        headingTextStyle:kSaleGridHeaderStyle,
+    final columns = [
+      'کد کالا',
+      'نام کالا',
+      'مقدار',
+      'فی',
+      'مالیات',
+      'جمع مبلغ'
+    ];
+    return DataTable2(
+        headingTextStyle: kSaleGridHeaderStyle,
         sortAscending: isAscending,
         sortColumnIndex: sortColumnIndex,
         columns: getColumns(columns),
         columnSpacing: 5,
         headingRowHeight: 30,
-        dataRowHeight: 40,
-        rows: getRows(widget.sales));
+        dataRowHeight: 30,
+        rows: getRows(widget.sales),
+        enableCustomDecorate:  isExpanded,
+        selectedIndex: selectedIndex,
+        customDecoration: kTransactionRowDecoration);
   }
 
   getColumns(List<String> columns) => columns
-      .map((String column) => DataColumn(
+      .map((String column) => DataColumn2(
             label: Text(
               column,
             ),
@@ -67,31 +80,56 @@ class _SaleGridState extends State<TransactionGrid> {
           ))
       .toList();
 
-  getRows(List<SaleData> sales) => sales.map((sale) {
+  getRows(List<SaleData> sales) => sales.asMap().entries.map((sale) {
         final cells = [
-          sale.itemCode,
-          sale.description,
-          sale.quantity,
-          sale.unitPrice,
-          sale.tax,
-          sale.totalPrice
+          sale.value.itemCode,
+          sale.value.description,
+          sale.value.quantity,
+          sale.value.unitPrice,
+          sale.value.tax,
+          sale.value.totalPrice
         ];
-        rowCounter++;
-        return DataRow(
-            cells: getCells(cells),
-            color: (rowCounter % 2 == 0)
-                ? MaterialStateProperty.resolveWith((states) {
-                    return Colors.white;
-                  })
-                : MaterialStateProperty.resolveWith((states) {
-                    return const Color(0xFFF0F0F0);
-                  }));
+        return DataRow2(
+          specificRowHeight:
+              selectedIndex == sale.key && (isSelected || isExpanded) ? 70 : null,
+          onTap: () {
+            setState(() {
+              selectedIndex = sale.key;
+              isExpanded=false;
+              isSelected = true;
+            });
+          },
+
+          cells: getCells(cells, selectedIndex == sale.key),
+          color: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+              if (states.contains(MaterialState.selected)) {
+                return kSelectedRowColor;
+              } else {
+                return (sale.key % 2 == 0)
+                    ? Colors.white
+                    : const Color(0xFFF0F0F0);
+              }
+            },
+          ),
+          selected: isSelected && sale.key == selectedIndex ? true : false,
+        );
       }).toList();
 
-  getCells(List<dynamic> cells) => cells
+  getCells(List<dynamic> cells, bool expand) => cells
+      .asMap()
+      .entries
       .map(
         (data) => DataCell(
-          Text('$data',style: TextStyle(fontFamily: 'BNazanin',fontSize: 18),),
+          TransactionCell(
+            isActiveTextField: data.key > 0 && isExpanded==false,
+            isSelected: expand && isSelected,
+            isExpanded: expand && isExpanded,
+            hasKey: data.key < 4,
+            imageId: data.key < 4 ? getImage(data.key) : null,
+            cellTextStyle: kCellTextStyle,
+            cellText: '${data.value}',
+          ),
         ),
       )
       .toList();
@@ -100,13 +138,21 @@ class _SaleGridState extends State<TransactionGrid> {
     switch (columnIndex) {
       case 0:
         widget.sales.sort((sale1, sale2) => ascending
-            ? sale1.itemCode.toLowerCase().compareTo(sale2.itemCode.toLowerCase())
-            : sale2.itemCode.toLowerCase().compareTo(sale1.itemCode.toLowerCase()));
+            ? sale1.itemCode
+                .toLowerCase()
+                .compareTo(sale2.itemCode.toLowerCase())
+            : sale2.itemCode
+                .toLowerCase()
+                .compareTo(sale1.itemCode.toLowerCase()));
         break;
       case 1:
         widget.sales.sort((sale1, sale2) => ascending
-            ? sale1.description!.toLowerCase().compareTo(sale2.description!.toLowerCase())
-            : sale2.description!.toLowerCase().compareTo(sale1.description!.toLowerCase()));
+            ? sale1.description!
+                .toLowerCase()
+                .compareTo(sale2.description!.toLowerCase())
+            : sale2.description!
+                .toLowerCase()
+                .compareTo(sale1.description!.toLowerCase()));
         break;
       case 2:
         widget.sales.sort((sale1, sale2) => ascending
@@ -135,4 +181,30 @@ class _SaleGridState extends State<TransactionGrid> {
       isAscending = ascending;
     });
   }
+
+  getImage(int imageId) {
+    switch (imageId) {
+      case 0:
+        return TransactionCellImageId.edit;
+      case 1:
+        return TransactionCellImageId.item;
+      case 2:
+        return TransactionCellImageId.remove;
+      case 3:
+        return TransactionCellImageId.discount;
+    }
+  }
 }
+
+/*
+* if (data.key < 4 && haveKey == true &&
+                        selectedItem == index)
+                      Expanded(
+                        child: ElevatedButton(
+                          child: Container(
+                            child: Text('تخفیف'),
+                            color: Colors.blueAccent,
+                          ),
+                          onPressed: () {},
+                        ),
+                      )*/
