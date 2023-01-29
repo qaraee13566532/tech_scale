@@ -49,6 +49,7 @@ dependencies:
   badges: ^2.0.3
   flutter_svg: ^1.1.6
   persian_datetime_picker: ^2.5.0
+  marquee: ^2.2.3
 
 
 
@@ -103,6 +104,9 @@ flutter:
     - family: BBardiya
       fonts:
         - asset: assets/fonts/BBardiya.ttf
+    - family: Tahoma
+      fonts:
+        - asset: assets/fonts/tahoma.ttf
 
   # fonts:
   #   - family: Schyler

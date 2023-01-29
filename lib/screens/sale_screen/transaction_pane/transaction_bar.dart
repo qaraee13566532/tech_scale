@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 import 'package:tech_scale/utils/constant.dart';
+import 'package:tech_scale/utils/custom_date_time.dart';
 
 class TransactionBar extends StatefulWidget {
-  const TransactionBar({Key? key}) : super(key: key);
-
+  const TransactionBar({Key? key, required this.onTap}) : super(key: key);
+  final ValueSetter<int> onTap;
   @override
   State<TransactionBar> createState() => _TransactionBarState();
 }
@@ -22,22 +22,15 @@ class _TransactionBarState extends State<TransactionBar> {
 
   String selectedItem = dropDownItems[2];
   String formattedDate = "";
+
   bool onMouseHoverColor = false;
-
-  String format1(Date d) {
-    final f = d.formatter;
-
-    return '  ${f.wN}  ${f.d} ${f.mN} ${f.yyyy}';
-  }
-
-  getDate() => format1(Jalali.fromDateTime(DateTime.now()));
 
   @override
   void initState() {
-    formattedDate = getDate();
-    Timer.periodic(Duration(minutes: 1), (timer) {
+    formattedDate = CustomDateTime.getDate();
+    Timer.periodic(const Duration(minutes: 1), (timer) {
       setState(() {
-        formattedDate = getDate();
+        formattedDate = CustomDateTime.getDate();
       });
     });
     super.initState();
@@ -60,8 +53,6 @@ class _TransactionBarState extends State<TransactionBar> {
                 ),
               ),
               child: SizedBox(
-                width: double.infinity,
-                height: double.infinity,
                 child: Text(
                   formattedDate,
                   style: kTransactionBarDateTimeStyle,
@@ -103,9 +94,8 @@ class _TransactionBarState extends State<TransactionBar> {
                         isExpanded: true,
                         items: getDropDownItems(dropDownItems),
                         onChanged: (value) {
-                          setState(() {
-                            selectedItem = value!;
-                          });
+                          selectedItem = value!;
+                          widget.onTap(dropDownItems.indexOf(selectedItem));
                         },
                       ),
                     ),

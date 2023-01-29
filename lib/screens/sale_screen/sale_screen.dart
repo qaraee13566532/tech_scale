@@ -1,17 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
 import 'package:tech_scale/screens/sale_screen/search.dart';
+import 'package:tech_scale/screens/sale_screen/setting_bar/setting_bar.dart';
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_bar.dart';
-import 'package:tech_scale/screens/sale_screen/function_bar.dart';
+import 'package:tech_scale/screens/sale_screen/function_bar/function_bar.dart';
 import 'package:tech_scale/screens/sale_screen/status_bar.dart';
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_grid.dart';
-import 'package:tech_scale/screens/sale_screen/setting_bar.dart';
 import 'package:tech_scale/screens/sale_screen/task_pane/taskpad.dart';
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_details.dart';
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_tasks.dart';
 import 'package:tech_scale/screens/sale_screen/weight_pane/weight_pane.dart';
-
+import 'package:tech_scale/utils/custom_date_time.dart';
 
 class SaleScreen extends StatefulWidget {
   const SaleScreen({Key? key}) : super(key: key);
@@ -20,13 +22,21 @@ class SaleScreen extends StatefulWidget {
   State<SaleScreen> createState() => _SaleScreenState();
 }
 
+enum Alignment {
+  rightToLeft,
+  leftToRight,
+}
+
 class _SaleScreenState extends State<SaleScreen> {
   bool showFnLayout = true;
   int weightValue = 230670;
   int tareValue = 100800;
   int unitPrice = 80000000;
   int totalPrice = 245780000;
+  bool enableOrderButton = false;
+  String? dateTime;
   String? weightInfo;
+  Alignment taskPaneAlignment = Alignment.leftToRight;
   CalibrationInfo calInfo = CalibrationInfo();
   List<SaleData> sales = [
     SaleData()
@@ -105,6 +115,12 @@ class _SaleScreenState extends State<SaleScreen> {
     weightCustomerTasks.add(remove);
     weightCustomerTasks.add(remove);
     weightCustomerTasks.add(remove);
+    dateTime = CustomDateTime.getDateTime();
+    Timer.periodic(const Duration(minutes: 1), (timer) {
+      setState(() {
+        dateTime = CustomDateTime.getDateTime();
+      });
+    });
     super.initState();
   }
 
@@ -116,22 +132,25 @@ class _SaleScreenState extends State<SaleScreen> {
         Expanded(
           child: Row(
             children: [
-              SettingBar(onPressed: []),
+              const SettingBar(onPressed: []),
               Expanded(
                   flex: 29,
                   child: Column(
                     children: [
                       Expanded(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Expanded(
-                                flex: 1,
-                                child: Column(
-                                  children: const [
-                                    Search(),
-                                    TaskPad(),
-                                  ],
-                                )),
+                            taskPaneAlignment == Alignment.leftToRight
+                                ? Expanded(
+                                    flex: 1,
+                                    child: Column(
+                                      children: const [
+                                        Search(),
+                                        TaskPad(),
+                                      ],
+                                    ))
+                                : Container(),
                             Expanded(
                               flex: 2,
                               child: Column(
@@ -143,21 +162,55 @@ class _SaleScreenState extends State<SaleScreen> {
                                       totalPrice: totalPrice,
                                       weightInfo: weightInfo,
                                       weightCustomerTasks: weightCustomerTasks),
-                                  const TransactionBar(),
+                                  TransactionBar(onTap: (index) {
+                                    setState(() {
+                                      if (index != 4) {
+                                        if (index == 0 ||
+                                            index == 1 ||
+                                            index == 3) {
+                                          enableOrderButton = true;
+                                        } else {
+                                          enableOrderButton = false;
+                                        }
+                                      }
+                                    });
+                                  }),
                                   TransactionDetail(
                                       comment:
                                           '  عزیزان من از اینجا میوه های بسیار عالی و درجه یک بخرید',
                                       referenceNo: 10045200280.toString()),
                                   TransactionGrid(sales: sales),
-                                  const TransactionTasks(),
+                                  TransactionTasks(),
                                 ],
                               ),
                             ),
+                            taskPaneAlignment == Alignment.rightToLeft
+                                ? Expanded(
+                                    flex: 1,
+                                    child: Column(
+                                      children: const [
+                                        Search(),
+                                        TaskPad(),
+                                      ],
+                                    ))
+                                : Container(),
                           ],
                         ),
                       ),
-                      showFnLayout ? const FunctionBar() : Container(),
-                      const StatusBar(),
+                      showFnLayout
+                          ? FunctionBar(
+                              enableOrderButton: enableOrderButton,
+                            )
+                          : Container(),
+                      StatusBar(
+                          dateTime: dateTime ?? '',
+                          licenseRemainDays: 5,
+                          isPrinterOn: true,
+                          lastTransactionPrice: 1254800,
+                          onHold: 10,
+                          registerName: 'شاه حسینی ',
+                          registerNumber: 4,
+                          transactionCounter: 12),
                     ],
                   )),
             ],

@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      locale: Platform.isWindows ? const Locale('fa', 'IR') : null,
+ //     locale: Platform.isWindows ? const Locale('fa', 'IR') : null,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       initialRoute: AppRoutes.getInitialRoute(),

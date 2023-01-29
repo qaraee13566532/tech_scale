@@ -80,7 +80,6 @@ class _TransactionCellState extends State<TransactionCell> {
             hovered == false
         ? Colors.white
         : Colors.black;
-    print(fillColor);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

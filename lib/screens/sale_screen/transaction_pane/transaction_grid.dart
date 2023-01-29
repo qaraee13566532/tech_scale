@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/data_table.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_cell.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/common_widgets/data_table.dart';
+import 'package:tech_scale/screens/sale_screen/transaction_pane/common_widgets/transaction_cell.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class TransactionGrid extends StatefulWidget {
@@ -64,7 +64,7 @@ class _SaleGridState extends State<TransactionGrid> {
         columns: getColumns(columns),
         columnSpacing: 5,
         headingRowHeight: 30,
-        dataRowHeight: 30,
+        dataRowHeight: 28,
         rows: getRows(widget.sales),
         enableCustomDecorate:  isExpanded,
         selectedIndex: selectedIndex,

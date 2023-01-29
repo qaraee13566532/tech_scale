@@ -19,14 +19,12 @@ class TransactionCard extends StatelessWidget {
   final Color? iconColor;
   final VoidCallback? onTap;
 
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: (){
-          double cc= MediaQuery.of(context).size.width;
-          print(cc);
-        },
+        onTap: onTap,
         child: MouseRegion(
           cursor: SystemMouseCursors.click,
           child: Scaffold(

@@ -29,10 +29,15 @@ class CustomerWeightCard extends StatelessWidget {
             child: Badge(
               showBadge: hasBadge & (badgeValue > 0),
               position: BadgePosition.topStart(top: -10, start: 25),
-              badgeContent: Text(
-                badgeValue.toString(),
-                style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold,color:Colors.white ),
+              badgeContent: CircleAvatar(
+                maxRadius: 10,
+                minRadius: 0,
+                child: Text(
+                  badgeValue.toString(),
+                  style: const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:Colors.white ),
+                ),
               ),
+
               badgeColor: Colors.blueAccent,
               child: Padding(
                 padding: const EdgeInsets.all(2.0),
