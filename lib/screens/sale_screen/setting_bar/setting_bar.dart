@@ -3,9 +3,9 @@ import 'package:tech_scale/screens/sale_screen/setting_bar/setting_button.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class SettingBar extends StatelessWidget {
-  final List<VoidCallback?> onPressed;
+  final List<VoidCallback?> onTap;
 
-  const SettingBar({super.key, required this.onPressed});
+  const SettingBar({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,7 @@ class SettingBar extends StatelessWidget {
           child: Column(
             children: [
               GestureDetector(
+                onTap: onTap[0]!,
                 child: MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: Image.asset('assets/images/posview.png')),
@@ -30,6 +31,7 @@ class SettingBar extends StatelessWidget {
                 height: 10,
               ),
               GestureDetector(
+                onTap: onTap[1]!,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: Image.asset('assets/images/manager.png'),
@@ -38,16 +40,18 @@ class SettingBar extends StatelessWidget {
               Expanded(
                 child: Container(),
               ),
-              SettingButton(imageName: 'assets/images/question.png'),
-              SettingButton(imageName: 'assets/images/login.png'),
-              SettingButton(imageName: 'assets/images/exit.png'),
+              SettingButton(
+                  imageName: 'assets/images/question.png',  onTap: onTap[2]!),
+              SettingButton(imageName: 'assets/images/login.png',  onTap: onTap[3]!),
+              SettingButton(imageName: 'assets/images/exit.png',  onTap: onTap[4]!),
               Container(
                 width: 35,
                 height: 1,
                 color: const Color(0xff3d6499),
               ),
-              SettingButton(imageName: 'assets/images/fn.png'),
-              SettingButton(imageName: 'assets/images/keyboard.png'),
+              SettingButton(imageName: 'assets/images/fn.png', onTap: onTap[5]!),
+              SettingButton(
+                  imageName: 'assets/images/keyboard.png',  onTap: onTap[6]!),
             ],
           ),
         ),

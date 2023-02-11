@@ -3,8 +3,9 @@ import 'package:tech_scale/utils/constant.dart';
 
 
 class SettingButton extends StatefulWidget {
-  const SettingButton({Key? key,required this.imageName}) : super(key: key);
+  const SettingButton({Key? key,required this.imageName,required this.onTap}) : super(key: key);
   final String imageName;
+  final VoidCallback onTap;
   @override
   State<SettingButton> createState() => _SettingButtonState();
 }
@@ -16,6 +17,7 @@ class _SettingButtonState extends State<SettingButton> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
       child: GestureDetector(
+        onTap:widget.onTap,
         child: MouseRegion(cursor: SystemMouseCursors.click,
           onEnter: (pos) {setState(() {
             selectButton=true;

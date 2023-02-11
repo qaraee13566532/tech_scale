@@ -466,12 +466,79 @@ const kTaskPaneHeaderDecoration = BoxDecoration(
 );
 
 const kSearchBoxDecoration = BoxDecoration(
-  color:  Color(0xFFe1edff),
+  color: Color(0xFFe1edff),
   border: Border(
-
     bottom: BorderSide(
       color: Color(0xffb5c8ec),
     ),
   ),
-
 );
+
+
+
+const kBoxColorBegin = Colors.white;
+const kBoxColorEnd = boarderColor;
+var kBoxDecoration = BoxDecoration(
+  border: Border.all(width: 1, color: boarderColor),
+  borderRadius: BorderRadius.circular(3),
+  gradient: const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      kBoxColorBegin,
+      kBoxColorEnd,
+    ],
+  ),
+);
+
+const kSelectedBoxColorBegin = Color(0xff097cd7);
+const kSelectedBoxColorEnd = Color(0xffb9cbdb);
+
+var kSelectedBoxDecoration = BoxDecoration(
+  border: Border.all(width: 0.75, color: Colors.black),
+  borderRadius: BorderRadius.circular(3),
+  gradient: const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      kSelectedBoxColorBegin,
+      kSelectedBoxColorEnd,
+    ],
+  ),
+);
+
+
+
+const boarderColor = Color(0xffbfcddb);
+var kSelectedYellowBoxDecoration = BoxDecoration(
+  border: Border.all(
+    width: 0.75,
+    color: Color(0xffe46136),
+  ),
+  borderRadius: BorderRadius.circular(3),
+  gradient: const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Colors.white,
+      Color(0xffe46136),
+    ],
+  ),
+);
+
+var kSelectedGreenBoxDecoration = BoxDecoration(
+  border: Border.all(
+    width: 0.75,
+    color: Color(0xff1b9615),
+  ),
+  borderRadius: BorderRadius.circular(3),
+  gradient: const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Colors.white,
+      Color(0xff1b9615),
+    ],
+  ),
+);
+

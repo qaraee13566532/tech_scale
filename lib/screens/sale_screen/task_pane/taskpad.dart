@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:tech_scale/screens/sale_screen/task_pane/task_pad_builder.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class TaskPad extends StatelessWidget {
   const TaskPad({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    final tilesConfiguration = List.generate(
+        26,
+            (index) => TilesConfiguration()
+          ..height = 1
+          ..width = 1);
+    tilesConfiguration[22].width=2;
+    tilesConfiguration[22].height=2;
+    tilesConfiguration[23].width=2;
+    tilesConfiguration[23].height=2;
+    tilesConfiguration[23].decoration=kSelectedGreenBoxDecoration;
+    tilesConfiguration[22].decoration=kSelectedYellowBoxDecoration;
+
     return Expanded(
       child: Column(
         children: [
@@ -15,8 +29,17 @@ class TaskPad extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              color: const Color(0xFFADD1FF),
-            ),
+                color: const Color(0xFFcbe2ff),
+                child:  TaskPadBuilder(
+                  onTap: List.generate(32, (index) => (){
+                    print(index);
+                  }),
+                  mainAxisCount: 8,
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 3,
+                  crossAxisSpacing: 4,
+                  tilesConfiguration:tilesConfiguration,
+                )),
           ),
         ],
       ),

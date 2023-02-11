@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
@@ -14,6 +15,7 @@ import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_deta
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_tasks.dart';
 import 'package:tech_scale/screens/sale_screen/weight_pane/weight_pane.dart';
 import 'package:tech_scale/utils/custom_date_time.dart';
+import 'package:process_run/cmd_run.dart';
 
 class SaleScreen extends StatefulWidget {
   const SaleScreen({Key? key}) : super(key: key);
@@ -100,10 +102,14 @@ class _SaleScreenState extends State<SaleScreen> {
   }
 
   List<VoidCallback> weightCustomerTasks = [];
+  List<VoidCallback> settingOnTap = [];
 
   @override
   void initState() {
     // TODO: implement initState
+    settingOnTap = List.generate(7, (index) => () {});
+    settingOnTap[5] = showHideFunctionBar;
+    settingOnTap[6] = showOnScreenKeyboard;
     calInfo.maxFirstCapacity = 30000000;
     calInfo.maxSecondCapacity = 60000000;
     calInfo.weightFirstDivision = 1000;
@@ -124,6 +130,24 @@ class _SaleScreenState extends State<SaleScreen> {
     super.initState();
   }
 
+  showOnScreenKeyboard() {
+    if (Platform.isWindows) {
+      ProcessCmd cmd = ProcessCmd(
+        'osk.exe',
+        [],
+        runInShell: true,
+      );
+      //RUN CMD
+      runCmd(cmd, verbose: false, commandVerbose: false);
+    }
+  }
+
+  showHideFunctionBar() {
+    setState(() {
+      showFnLayout = !showFnLayout;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -132,7 +156,7 @@ class _SaleScreenState extends State<SaleScreen> {
         Expanded(
           child: Row(
             children: [
-              const SettingBar(onPressed: []),
+              SettingBar(onTap: settingOnTap),
               Expanded(
                   flex: 29,
                   child: Column(
