@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/sale_screen/weight_pane/device_spec_and_icons_lndicators_pane.dart';
-import 'package:tech_scale/screens/sale_screen/weight_pane/customer_weight_functions.dart';
+import 'package:tech_scale/screens/sale_screen/single_weight_pane/device_spec_and_icons_lndicators_pane.dart';
+import 'package:tech_scale/screens/sale_screen/single_weight_pane/customer_weight_functions.dart';
 import 'package:tech_scale/utils/constant.dart';
-import 'package:tech_scale/screens/sale_screen/weight_pane/weight_card.dart';
+import 'package:tech_scale/screens/sale_screen/single_weight_pane/weight_card.dart';
 
-class WeightPane extends StatelessWidget {
+class SingleWeightPane extends StatelessWidget {
   final int? weightValue;
   final int? tareValue;
   final int? unitPrice;
@@ -12,14 +12,14 @@ class WeightPane extends StatelessWidget {
   final String? weightInfo;
   final List<VoidCallback> weightCustomerTasks;
 
-  const WeightPane(
+  const SingleWeightPane(
       {Key? key,
-      required this.weightValue,
-      required this.tareValue,
-      required this.unitPrice,
-      required this.totalPrice,
-      required this.weightInfo,
-      required this.weightCustomerTasks})
+        required this.weightValue,
+        required this.tareValue,
+        required this.unitPrice,
+        required this.totalPrice,
+        required this.weightInfo,
+        required this.weightCustomerTasks})
       : super(key: key);
 
   @override
@@ -42,18 +42,18 @@ class WeightPane extends StatelessWidget {
                 Expanded(
                     child: WeightCard(
                         value: weightValue,
-                        title: '(Kg) وزن',
+                        title: '(کیلوگرم) وزن',
                         fractionDigits: 3)),
-                const SizedBox(width: 5),
+                const SizedBox(width: 3),
                 Expanded(
                     child: WeightCard(
                         value: tareValue,
-                        title: '(Kg) پارسنگ',
+                        title: '(کیلوگرم) پارسنگ',
                         fractionDigits: 3)),
-                const SizedBox(width: 5),
+                const SizedBox(width: 3),
                 Expanded(
                     child: WeightCard(value: unitPrice, title: 'فی (ریال)')),
-                const SizedBox(width: 5),
+                const SizedBox(width: 3),
                 Expanded(
                     child: WeightCard(value: totalPrice, title: 'قیمت (ریال)')),
               ],

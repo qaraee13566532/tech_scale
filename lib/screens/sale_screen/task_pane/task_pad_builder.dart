@@ -57,7 +57,7 @@ class _TaskPadBuilderState extends State<TaskPadBuilder> {
       child: Padding(
         padding: const EdgeInsets.only(top: 4,right: 4,left: 4),
         child: LayoutBuilder(builder: (context, constraints) {
-          minWidth = (constraints.maxHeight -
+          minWidth = (2+constraints.maxHeight -
                   ((widget.mainAxisCount - 1) * widget.mainAxisSpacing!)) /
               widget.mainAxisCount;
           return Column(

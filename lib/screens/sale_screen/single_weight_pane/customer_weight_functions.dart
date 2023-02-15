@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tech_scale/screens/sale_screen/weight_pane/customer_weight_card.dart';
+import 'package:tech_scale/screens/sale_screen/single_weight_pane/customer_weight_card.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 

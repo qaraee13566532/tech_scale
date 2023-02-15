@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tech_scale/screens/sale_screen/weight_pane/indicator_icon.dart';
+import 'package:tech_scale/screens/sale_screen/single_weight_pane/indicator_icon.dart';
 import 'package:tech_scale/utils/constant.dart';
-
 
 class DevicePane extends StatelessWidget {
   final bool isStable, isTared, isZero;
@@ -31,44 +30,45 @@ class DevicePane extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const IndicatorIcon(
+                    IndicatorIcon(
                       iconFile: 'assets/icons/Stable.svg',
                       topMargin: 4,
                       bottomMargin: 4,
                       leftMargin: 5,
                       rightMargin: 5,
-                      enable: false,
+                      enable: isStable,
                     ),
-                    const IndicatorIcon(
+                    IndicatorIcon(
                       iconFile: 'assets/icons/Tare.svg',
                       topMargin: 1,
                       bottomMargin: 1,
                       leftMargin: 5,
                       rightMargin: 5,
-                      enable: true,
+                      enable: isTared,
                     ),
-                    const IndicatorIcon(
+                    IndicatorIcon(
                       iconFile: 'assets/icons/Zero.svg',
                       topMargin: 4,
                       bottomMargin: 4,
                       leftMargin: 4,
                       rightMargin: 4,
-                      enable: false,
+                      enable: isZero,
                     ),
                     Container(
-                        decoration: kBatteryIconStyle,
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              right: 2, left: 2, top: 0, bottom: 0),
-                          child: RotatedBox(
-                            quarterTurns: 1,
-                            child: Icon(
-                              iconName,
-                              size: 21,
-                              color: Colors.white,
-                            ),
+                      decoration: kBatteryIconStyle,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            right: 2, left: 2, top: 0, bottom: 0),
+                        child: RotatedBox(
+                          quarterTurns: 1,
+                          child: Icon(
+                            iconName,
+                            size: 21,
+                            color: Colors.white,
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -76,10 +76,11 @@ class DevicePane extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Container(
-                decoration: kWeightCardsStyle,
+                decoration: kWeightCardsStyle.copyWith(color: kBackgroundWeightColor),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),
-                  child: Text(weightInfo,
+                  child: Text(
+                    weightInfo,
                     style: GoogleFonts.ptSans(
                       fontSize: 16,
                       color: Colors.white,

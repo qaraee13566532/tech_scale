@@ -16,7 +16,7 @@ const kCellDecoration = InputDecoration(
       ),
       borderSide: BorderSide.none,
     ),
-    contentPadding: EdgeInsets.only(left: 5, bottom: 5));
+    contentPadding: EdgeInsets.only(left: 0, bottom: 5));
 
 class TransactionCell extends StatefulWidget {
   const TransactionCell(

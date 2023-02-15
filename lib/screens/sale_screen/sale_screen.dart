@@ -6,6 +6,7 @@ import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
 import 'package:tech_scale/screens/sale_screen/search.dart';
 import 'package:tech_scale/screens/sale_screen/setting_bar/setting_bar.dart';
+import 'package:tech_scale/screens/sale_screen/single_weight_pane/single_weight_pane.dart';
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_bar.dart';
 import 'package:tech_scale/screens/sale_screen/function_bar/function_bar.dart';
 import 'package:tech_scale/screens/sale_screen/status_bar.dart';
@@ -13,7 +14,6 @@ import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_grid
 import 'package:tech_scale/screens/sale_screen/task_pane/taskpad.dart';
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_details.dart';
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_tasks.dart';
-import 'package:tech_scale/screens/sale_screen/weight_pane/weight_pane.dart';
 import 'package:tech_scale/utils/custom_date_time.dart';
 import 'package:process_run/cmd_run.dart';
 
@@ -179,13 +179,14 @@ class _SaleScreenState extends State<SaleScreen> {
                               flex: 2,
                               child: Column(
                                 children: [
-                                  WeightPane(
-                                      weightValue: weightValue,
-                                      tareValue: tareValue,
-                                      unitPrice: unitPrice,
-                                      totalPrice: totalPrice,
-                                      weightInfo: weightInfo,
-                                      weightCustomerTasks: weightCustomerTasks),
+                                  SingleWeightPane(
+                                    weightValue: weightValue,
+                                    tareValue: tareValue,
+                                    unitPrice: unitPrice,
+                                    totalPrice: totalPrice,
+                                    weightInfo: weightInfo,
+                                    weightCustomerTasks: weightCustomerTasks,
+                                  ),
                                   TransactionBar(onTap: (index) {
                                     setState(() {
                                       if (index != 4) {
