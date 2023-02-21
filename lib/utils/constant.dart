@@ -55,9 +55,15 @@ const kInnerSettingBar = BoxDecoration(
   ),
 );
 
-var kWeightCardsStyle = BoxDecoration(color: Colors.white,
-  border: Border.all(width: 1.5, color: Colors.white),
+var kWeightCardsStyle = BoxDecoration(color: kBackgroundWeightColor,
+
   borderRadius: BorderRadius.circular(8),
+  border: Border.all(width: 1.5,color: Colors.white)
+  // border: const Border(
+  //    right: BorderSide(width: 1.0, color: Colors.white),
+  //    left: BorderSide(width: 1.0, color: Colors.white),
+  //    bottom: BorderSide(width: 1.0, color: Colors.white),
+  //  ), //
 );
 
 var kDualWeightCardsStyle = BoxDecoration(

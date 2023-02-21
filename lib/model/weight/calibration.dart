@@ -31,22 +31,24 @@ class CalibrationInfo {
   int? pointNumber;
   bool? isCalibrated;
 
-  String makeDeviceInfo() {
+  String makeDeviceInfo(int scaleNumber) {
     WeightInfoLabel minimumWeight =
-    WeightInfoLabel(this.weightFirstDivision! * 20);
-    WeightInfoLabel maxFirstCapacity =
-    WeightInfoLabel(this.maxFirstCapacity!);
+        WeightInfoLabel(this.weightFirstDivision! * 20);
+    WeightInfoLabel maxFirstCapacity = WeightInfoLabel(this.maxFirstCapacity!);
     WeightInfoLabel maxSecondCapacity =
-    WeightInfoLabel(this.maxSecondCapacity!);
+        WeightInfoLabel(this.maxSecondCapacity!);
     WeightInfoLabel weightFirstDivision =
-    WeightInfoLabel(this.weightFirstDivision!);
+        WeightInfoLabel(this.weightFirstDivision!);
     WeightInfoLabel weightSecondDivision =
-    WeightInfoLabel(this.weightSecondDivision!);
-    String info =
-        'Min = ${minimumWeight.value} ${minimumWeight
-        .unit}   Max = ${maxFirstCapacity.value}/${maxSecondCapacity
-        .value} ${maxSecondCapacity.unit}   e = d = ${weightFirstDivision
-        .value}/${weightSecondDivision.value} ${weightSecondDivision.unit} III';
+        WeightInfoLabel(this.weightSecondDivision!);
+    String info = '';
+    if (scaleNumber == 1) {
+      info =
+          'Min = ${minimumWeight.value} ${minimumWeight.unit}   Max = ${maxFirstCapacity.value}/${maxSecondCapacity.value} ${maxSecondCapacity.unit}   e = d = ${weightFirstDivision.value}/${weightSecondDivision.value} ${weightSecondDivision.unit} III';
+    } else if (scaleNumber == 2) {
+      info =
+          'Min = ${minimumWeight.value} ${minimumWeight.unit}   Max = ${maxFirstCapacity.value}/${maxSecondCapacity.value} ${maxSecondCapacity.unit}   e = d = ${weightFirstDivision.value}/${weightSecondDivision.value} ${weightSecondDivision.unit} III';
+    }
     return info;
   }
 }

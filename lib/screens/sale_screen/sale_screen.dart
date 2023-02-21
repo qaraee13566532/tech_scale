@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
+import 'package:tech_scale/screens/dual_weight_pane/dual_weight_pane.dart';
 import 'package:tech_scale/screens/sale_screen/search.dart';
 import 'package:tech_scale/screens/sale_screen/setting_bar/setting_bar.dart';
 import 'package:tech_scale/screens/sale_screen/single_weight_pane/single_weight_pane.dart';
@@ -36,8 +37,10 @@ class _SaleScreenState extends State<SaleScreen> {
   int unitPrice = 80000000;
   int totalPrice = 245780000;
   bool enableOrderButton = false;
+  bool isDualScale = true;
   String? dateTime;
-  String? weightInfo;
+  String? firstWeightInfo;
+  String? secondWeightInfo;
   Alignment taskPaneAlignment = Alignment.leftToRight;
   CalibrationInfo calInfo = CalibrationInfo();
   List<SaleData> sales = [
@@ -114,7 +117,8 @@ class _SaleScreenState extends State<SaleScreen> {
     calInfo.maxSecondCapacity = 60000000;
     calInfo.weightFirstDivision = 1000;
     calInfo.weightSecondDivision = 2000;
-    weightInfo = calInfo.makeDeviceInfo();
+    firstWeightInfo = calInfo.makeDeviceInfo(1);
+    secondWeightInfo = calInfo.makeDeviceInfo(2);
     weightCustomerTasks.add(tare);
     weightCustomerTasks.add(remove);
     weightCustomerTasks.add(remove);
@@ -179,14 +183,27 @@ class _SaleScreenState extends State<SaleScreen> {
                               flex: 2,
                               child: Column(
                                 children: [
-                                  SingleWeightPane(
-                                    weightValue: weightValue,
-                                    tareValue: tareValue,
-                                    unitPrice: unitPrice,
-                                    totalPrice: totalPrice,
-                                    weightInfo: weightInfo,
-                                    weightCustomerTasks: weightCustomerTasks,
-                                  ),
+                                  isDualScale
+                                      ? DualWeightPane(
+                                          weightValue: weightValue,
+                                          tareValue: tareValue,
+                                          unitPrice: unitPrice,
+                                          totalPrice: totalPrice,
+                                          firstWeightInfo: firstWeightInfo,
+                                          secondWeightInfo: secondWeightInfo,
+                                          isFirstScaleEnabled: true,
+                                          isSecondScaleEnabled: true,
+                                          weightCustomerTasks:
+                                              weightCustomerTasks)
+                                      : SingleWeightPane(
+                                          weightValue: weightValue,
+                                          tareValue: tareValue,
+                                          unitPrice: unitPrice,
+                                          totalPrice: totalPrice,
+                                          weightInfo: firstWeightInfo,
+                                          weightCustomerTasks:
+                                              weightCustomerTasks,
+                                        ),
                                   TransactionBar(onTap: (index) {
                                     setState(() {
                                       if (index != 4) {
