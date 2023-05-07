@@ -64,10 +64,11 @@ class _TaskPadBuilderState extends State<TaskPadBuilder> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               StaggeredGrid.count(
-                crossAxisCount: widget.crossAxisCount,
+                crossAxisCount: 1,//widget.crossAxisCount,
                 mainAxisSpacing: widget.mainAxisSpacing ?? 0,
                 crossAxisSpacing: widget.crossAxisSpacing ?? 0,
                 children: getStaggeredGridTile(),
+
               ),
             ],
           );
