@@ -55,22 +55,19 @@ class _TaskPadBuilderState extends State<TaskPadBuilder> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 4,right: 4,left: 4),
+        padding: const EdgeInsets.only(top: 4, right: 4, left: 4),
         child: LayoutBuilder(builder: (context, constraints) {
-          minWidth = (2+constraints.maxHeight -
+          minWidth = (2 +
+                  constraints.maxHeight -
                   ((widget.mainAxisCount - 1) * widget.mainAxisSpacing!)) /
               widget.mainAxisCount;
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              StaggeredGrid.count(
-                crossAxisCount: 1,//widget.crossAxisCount,
-                mainAxisSpacing: widget.mainAxisSpacing ?? 0,
-                crossAxisSpacing: widget.crossAxisSpacing ?? 0,
-                children: getStaggeredGridTile(),
-
-              ),
-            ],
+          return SingleChildScrollView(
+            child: StaggeredGrid.count(
+              crossAxisCount: widget.crossAxisCount,
+              mainAxisSpacing: widget.mainAxisSpacing ?? 0,
+              crossAxisSpacing: widget.crossAxisSpacing ?? 0,
+              children: getStaggeredGridTile(),
+            ),
           );
         }),
       ),
