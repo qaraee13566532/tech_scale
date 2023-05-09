@@ -55,19 +55,8 @@ const kInnerSettingBar = BoxDecoration(
   ),
 );
 
-var kWeightCardsStyle = BoxDecoration(color: kBackgroundWeightColor,
-
-  borderRadius: BorderRadius.circular(8),
-  border: Border.all(width: 1.5,color: Colors.white)
-  // border: const Border(
-  //    right: BorderSide(width: 1.0, color: Colors.white),
-  //    left: BorderSide(width: 1.0, color: Colors.white),
-  //    bottom: BorderSide(width: 1.0, color: Colors.white),
-  //  ), //
-);
-
-var kDualWeightCardsStyle = BoxDecoration(
-  border: Border.all(width: 1, color: Colors.white54),
+var kWeightCardsStyle = BoxDecoration(
+  color: Color(0xff94A5C9),
   borderRadius: BorderRadius.circular(8),
 );
 
@@ -75,8 +64,8 @@ const kWeightCardTitleStyle = TextStyle(
     fontWeight: FontWeight.bold,
     fontFamily: 'BNazanin',
     decoration: TextDecoration.none,
-    fontSize: 18,
-    color:Colors.white54);
+    fontSize: 20,
+    color: Color(0xffF7F7F7));
 
 const kSaleGridHeaderStyle = TextStyle(
     fontWeight: FontWeight.bold,
@@ -120,9 +109,7 @@ const kTransactionDetailStyle = TextStyle(
 var kWeightValueStyle = GoogleFonts.oswald(
     fontWeight: FontWeight.normal,
     decoration: TextDecoration.none,
-    color: Color(0xffF7F7F7),
-
-);
+    color: Color(0xffF7F7F7));
 
 var kWeightScaleInfo = BoxDecoration(
   color: const Color(0xff94A5C9),

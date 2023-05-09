@@ -1,4 +1,3 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:tech_scale/utils/constant.dart';
 
@@ -26,7 +25,7 @@ class CustomerWeightCard extends StatelessWidget {
           onPressed: onTap,
           child: Center(
               child: Container(
-            child: Badge(
+        /*    child: Badge(
               showBadge: hasBadge & (badgeValue > 0),
               position: BadgePosition.topStart(top: -10, start: 25),
               badgeContent: CircleAvatar(
@@ -43,7 +42,7 @@ class CustomerWeightCard extends StatelessWidget {
                 padding: const EdgeInsets.all(2.0),
                 child: widgetIcon,
               ),
-            ),
+            ),*/
           )),
         ));
   }
