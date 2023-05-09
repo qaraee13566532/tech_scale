@@ -46,7 +46,7 @@ dependencies:
   responsive_builder: ^0.4.3
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.3.0
-  badges: ^2.0.3
+  badges: ^3.1.1
   flutter_svg: ^1.1.6
   persian_datetime_picker: ^2.5.0
   marquee: ^2.2.3

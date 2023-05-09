@@ -1,6 +1,6 @@
-//import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:tech_scale/utils/constant.dart';
+import 'package:badges/badges.dart' as badges;
 
 class FloatingCustomerCard extends StatelessWidget {
   final Widget? widgetIcon;
@@ -29,9 +29,9 @@ class FloatingCustomerCard extends StatelessWidget {
             ),
             onPressed: onTap,
             child: Center(
-         /*     child: Badge(
+              child: badges.Badge(
                 showBadge: hasBadge & (badgeValue > 0),
-                position: BadgePosition.topStart(top: 0, start: 25),
+                position: badges.BadgePosition.topStart(top: 0, start: 25),
                 badgeContent: Container(
                   height: 15,
                   width: 15,
@@ -47,12 +47,14 @@ class FloatingCustomerCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                badgeColor: Colors.blueAccent,
+                badgeStyle: const badges.BadgeStyle(
+                  badgeColor: Colors.blueAccent,
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: widgetIcon!,
                 ),
-              ),*/
+              ),
             ),
           ),
 
