@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/screens/sale_screen/single_weight_pane/device_spec_and_icons_lndicators_pane.dart';
 import 'package:tech_scale/screens/sale_screen/single_weight_pane/customer_weight_functions.dart';
+import 'package:tech_scale/components/weight_card.dart';
 import 'package:tech_scale/utils/constant.dart';
-import 'package:tech_scale/screens/sale_screen/single_weight_pane/weight_card.dart';
 
 class SingleWeightPane extends StatelessWidget {
   final int? weightValue;
@@ -14,12 +14,12 @@ class SingleWeightPane extends StatelessWidget {
 
   const SingleWeightPane(
       {Key? key,
-        required this.weightValue,
-        required this.tareValue,
-        required this.unitPrice,
-        required this.totalPrice,
-        required this.weightInfo,
-        required this.weightCustomerTasks})
+      required this.weightValue,
+      required this.tareValue,
+      required this.unitPrice,
+      required this.totalPrice,
+      required this.weightInfo,
+      required this.weightCustomerTasks})
       : super(key: key);
 
   @override
@@ -40,22 +40,62 @@ class SingleWeightPane extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                    child: WeightCard(
-                        value: weightValue,
-                        title: '(کیلوگرم) وزن',
-                        fractionDigits: 3)),
+                  child: WeightCard(
+                    weightValue: weightValue,
+                    tareValue: tareValue,
+                    title: 'وزن (کیلوگرم)',
+                    fractionDigits: 3,
+                    iconName: Icons.battery_charging_full,
+                    isStable: false,
+                    isTared: false,
+                    isZero: false,
+                    showBatIcon: false,
+                    showWeightDetails: false,
+                  ),
+                ),
                 const SizedBox(width: 3),
                 Expanded(
-                    child: WeightCard(
-                        value: tareValue,
-                        title: '(کیلوگرم) پارسنگ',
-                        fractionDigits: 3)),
+                  child: WeightCard(
+                    weightValue: weightValue,
+                    tareValue: tareValue,
+                    title: '(کیلوگرم) پارسنگ',
+                    fractionDigits: 3,
+                    iconName: Icons.battery_charging_full,
+                    isStable: true,
+                    isTared: true,
+                    isZero: true,
+                    showBatIcon: false,
+                    showWeightDetails: false,
+                  ),
+                ),
                 const SizedBox(width: 3),
                 Expanded(
-                    child: WeightCard(value: unitPrice, title: 'فی (ریال)')),
+                  child: WeightCard(
+                    weightValue: weightValue,
+                    tareValue: weightValue,
+                    title: 'فی (ریال)',
+                    iconName: Icons.battery_charging_full,
+                    isStable: true,
+                    isTared: true,
+                    isZero: true,
+                    showBatIcon: false,
+                    showWeightDetails: false,
+                  ),
+                ),
                 const SizedBox(width: 3),
                 Expanded(
-                    child: WeightCard(value: totalPrice, title: 'قیمت (ریال)')),
+                  child: WeightCard(
+                    weightValue: weightValue,
+                    tareValue: weightValue,
+                    title: 'قیمت (ریال)',
+                    iconName: Icons.battery_charging_full,
+                    isStable: true,
+                    isTared: true,
+                    isZero: true,
+                    showBatIcon: false,
+                    showWeightDetails: false,
+                  ),
+                ),
               ],
             ),
           ),

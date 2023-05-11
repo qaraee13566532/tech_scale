@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tech_scale/utils/constant.dart';
 
-class WeightCard extends StatelessWidget {
+class WeightCardccc extends StatelessWidget {
   final int? value;
   final String? title;
   final int? fractionDigits;
 
-  const WeightCard(
+  const WeightCardccc(
       {Key? key, required this.value, required this.title, this.fractionDigits})
       : super(key: key);
 
@@ -24,7 +24,7 @@ class WeightCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     return Container(
-      decoration: kWeightCardsStyle,
+      decoration: kWeightCardsStyle.copyWith(color: Colors.white),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,

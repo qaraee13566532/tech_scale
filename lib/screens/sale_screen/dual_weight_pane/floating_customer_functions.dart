@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tech_scale/screens/dual_weight_pane/floating_customer_card.dart';
+import 'package:tech_scale/screens/sale_screen/dual_weight_pane/floating_customer_card.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class FloatingCustomerFunctions extends StatelessWidget {

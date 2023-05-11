@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tech_scale/screens/sale_screen/single_weight_pane/indicator_icon.dart';
 import 'package:tech_scale/utils/constant.dart';
 
-class DualWeightCard extends StatelessWidget {
+class WeightCard extends StatelessWidget {
   final int? weightValue;
   final int? tareValue;
   final String? title;
@@ -14,7 +14,7 @@ class DualWeightCard extends StatelessWidget {
   final bool showBatIcon;
   final bool showWeightDetails;
 
-  const DualWeightCard({
+  const WeightCard({
     Key? key,
     required this.showBatIcon,
     required this.iconName,

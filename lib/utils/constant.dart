@@ -56,7 +56,7 @@ const kInnerSettingBar = BoxDecoration(
 );
 
 var kWeightCardsStyle = BoxDecoration(
-  color: Color(0xff94A5C9),
+  color: const Color(0xff94A5c9),
   borderRadius: BorderRadius.circular(8),
 );
 
@@ -109,7 +109,7 @@ const kTransactionDetailStyle = TextStyle(
 var kWeightValueStyle = GoogleFonts.oswald(
     fontWeight: FontWeight.normal,
     decoration: TextDecoration.none,
-    color: Color(0xffF7F7F7));
+    color: const Color(0xffF7F7F7));
 
 var kWeightScaleInfo = BoxDecoration(
   color: const Color(0xff94A5C9),
@@ -513,7 +513,7 @@ const boarderColor = Color(0xffbfcddb);
 var kSelectedYellowBoxDecoration = BoxDecoration(
   border: Border.all(
     width: 0.75,
-    color: Color(0xffe46136),
+    color: const Color(0xffe46136),
   ),
   borderRadius: BorderRadius.circular(3),
   gradient: const LinearGradient(
@@ -529,7 +529,7 @@ var kSelectedYellowBoxDecoration = BoxDecoration(
 var kSelectedGreenBoxDecoration = BoxDecoration(
   border: Border.all(
     width: 0.75,
-    color: Color(0xff1b9615),
+    color: const Color(0xff1b9615),
   ),
   borderRadius: BorderRadius.circular(3),
   gradient: const LinearGradient(

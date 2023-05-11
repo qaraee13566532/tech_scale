@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tech_scale/screens/sale_screen/single_weight_pane/customer_weight_card.dart';
+import 'package:tech_scale/screens/sale_screen/dual_weight_pane/floating_customer_card.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 
@@ -17,7 +17,7 @@ class CustomerWeightFunctions extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List.generate(
           6,
-          (index) => CustomerWeightCard(
+          (index) => FloatingCustomerCard(
             widgetIcon:
                 index == 0
                     ? Text(

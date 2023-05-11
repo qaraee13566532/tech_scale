@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
-import 'package:tech_scale/screens/dual_weight_pane/dual_weight_pane.dart';
 import 'package:tech_scale/screens/sale_screen/search.dart';
 import 'package:tech_scale/screens/sale_screen/setting_bar/setting_bar.dart';
 import 'package:tech_scale/screens/sale_screen/single_weight_pane/single_weight_pane.dart';
@@ -17,6 +16,8 @@ import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_deta
 import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_tasks.dart';
 import 'package:tech_scale/utils/custom_date_time.dart';
 import 'package:process_run/cmd_run.dart';
+
+import 'dual_weight_pane/dual_weight_pane.dart';
 
 class SaleScreen extends StatefulWidget {
   const SaleScreen({Key? key}) : super(key: key);
@@ -37,7 +38,7 @@ class _SaleScreenState extends State<SaleScreen> {
   int unitPrice = 80000000;
   int totalPrice = 245780000;
   bool enableOrderButton = false;
-  bool isDualScale = true;
+  bool isDualScale = false;
   String? dateTime;
   String? firstWeightInfo;
   String? secondWeightInfo;

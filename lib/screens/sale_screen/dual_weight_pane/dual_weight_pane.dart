@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/dual_weight_pane/dual_device_spec.dart';
-import 'package:tech_scale/screens/dual_weight_pane/dual_weight_card.dart';
-import 'package:tech_scale/screens/dual_weight_pane/floating_customer_functions.dart';
+import 'package:tech_scale/screens/sale_screen/dual_weight_pane/dual_device_spec.dart';
+import 'package:tech_scale/components/weight_card.dart';
+import 'package:tech_scale/screens/sale_screen/dual_weight_pane/floating_customer_functions.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class DualWeightPane extends StatelessWidget {
@@ -55,7 +55,7 @@ class DualWeightPane extends StatelessWidget {
                           if (isFirstScaleEnabled)
                             Expanded(
                                 flex: 1,
-                                child: DualWeightCard(
+                                child: WeightCard(
                                   weightValue: weightValue,
                                   tareValue: weightValue,
                                   title: 'ترازوی یک (کیلوگرم)',
@@ -71,7 +71,7 @@ class DualWeightPane extends StatelessWidget {
                           if (isSecondScaleEnabled)
                             Expanded(
                                 flex: 1,
-                                child: DualWeightCard(
+                                child: WeightCard(
                                   weightValue: weightValue,
                                   tareValue: weightValue,
                                   title: 'ترازوی دو (کیلوگرم)',
@@ -86,7 +86,7 @@ class DualWeightPane extends StatelessWidget {
                           if (isSecondScaleEnabled) const SizedBox(width: 3),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Row(
@@ -124,7 +124,7 @@ class DualWeightPane extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                            child: DualWeightCard(
+                            child: WeightCard(
                               weightValue: weightValue,
                               tareValue: weightValue,
                               title: 'فی (ریال)',
@@ -138,7 +138,7 @@ class DualWeightPane extends StatelessWidget {
                           ),
                           const SizedBox(width: 3),
                           Expanded(
-                            child: DualWeightCard(
+                            child: WeightCard(
                               weightValue: weightValue,
                               tareValue: weightValue,
                               title: 'قیمت (ریال)',
@@ -152,7 +152,7 @@ class DualWeightPane extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       FloatingCustomerFunctions(
