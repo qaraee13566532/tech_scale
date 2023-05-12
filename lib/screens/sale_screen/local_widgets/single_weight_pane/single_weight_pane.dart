@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/sale_screen/single_weight_pane/device_spec_and_icons_lndicators_pane.dart';
-import 'package:tech_scale/screens/sale_screen/single_weight_pane/customer_weight_functions.dart';
-import 'package:tech_scale/components/weight_card.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/single_weight_pane/local_widgets/customer_weight_functions.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/single_weight_pane/local_widgets/device_spec_and_icons_lndicators_pane.dart';
+import 'package:tech_scale/widgets/weight_card.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class SingleWeightPane extends StatelessWidget {

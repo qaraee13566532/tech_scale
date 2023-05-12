@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tech_scale/screens/sale_screen/single_weight_pane/indicator_icon.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/single_weight_pane/local_widgets/indicator_icon.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class DevicePane extends StatelessWidget {

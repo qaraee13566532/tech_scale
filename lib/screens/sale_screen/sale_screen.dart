@@ -1,23 +1,21 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
 import 'package:tech_scale/model/weight/calibration.dart';
-import 'package:tech_scale/screens/sale_screen/search.dart';
-import 'package:tech_scale/screens/sale_screen/setting_bar/setting_bar.dart';
-import 'package:tech_scale/screens/sale_screen/single_weight_pane/single_weight_pane.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_bar.dart';
-import 'package:tech_scale/screens/sale_screen/function_bar/function_bar.dart';
-import 'package:tech_scale/screens/sale_screen/status_bar.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_grid.dart';
-import 'package:tech_scale/screens/sale_screen/task_pane/taskpad.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_details.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/transaction_tasks.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/dual_weight_pane/dual_weight_pane.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/function_bar/function_bar.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/search.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/setting_bar/setting_bar.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/single_weight_pane/single_weight_pane.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/status_bar.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/taskpad_pane/taskpad_pane.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/transaction_bar.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/transaction_details.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/transaction_grid/transaction_grid.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/transaction_pane.dart';
 import 'package:tech_scale/utils/custom_date_time.dart';
 import 'package:process_run/cmd_run.dart';
-
-import 'dual_weight_pane/dual_weight_pane.dart';
 
 class SaleScreen extends StatefulWidget {
   const SaleScreen({Key? key}) : super(key: key);
@@ -176,7 +174,7 @@ class _SaleScreenState extends State<SaleScreen> {
                                     child: Column(
                                       children: const [
                                         Search(),
-                                        TaskPad(),
+                                        TaskPadPane(),
                                       ],
                                     ))
                                 : Container(),
@@ -233,7 +231,7 @@ class _SaleScreenState extends State<SaleScreen> {
                                     child: Column(
                                       children: const [
                                         Search(),
-                                        TaskPad(),
+                                        TaskPadPane(),
                                       ],
                                     ))
                                 : Container(),

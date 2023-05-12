@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/shipping_dialog.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/total_dialog.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/common_widgets/transaction_card.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/shipping_dialog.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/total_dialog.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/transaction_grid/local_widgets/transaction_card.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class TransactionTasks extends StatelessWidget {

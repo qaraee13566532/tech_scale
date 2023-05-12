@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tech_scale/model/sale_grid/sale_grid.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/common_widgets/data_table.dart';
-import 'package:tech_scale/screens/sale_screen/transaction_pane/common_widgets/transaction_cell.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/transaction_grid/local_widgets/data_table.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/transaction_grid/local_widgets/transaction_cell.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class TransactionGrid extends StatefulWidget {

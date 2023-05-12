@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/sale_screen/function_bar/function_button.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/function_bar/local_widgets/function_button.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class FunctionBar extends StatelessWidget {

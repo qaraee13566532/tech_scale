@@ -99,16 +99,16 @@ flutter:
   fonts:
     - family: BNazanin
       fonts:
-        - asset: assets/fonts/BNazanin.ttf
+        - asset: fonts/BNazanin.ttf
     - family: BHoma
       fonts:
-        - asset: assets/fonts/BHoma.ttf
+        - asset: fonts/BHoma.ttf
     - family: BBardiya
       fonts:
-        - asset: assets/fonts/BBardiya.ttf
+        - asset: fonts/BBardiya.ttf
     - family: Tahoma
       fonts:
-        - asset: assets/fonts/tahoma.ttf
+        - asset: fonts/tahoma.ttf
 
   # fonts:
   #   - family: Schyler

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/transaction_pane/transaction_grid/local_widgets/shipping_dialog_button.dart';
 import 'package:tech_scale/utils/constant.dart';
-
-import 'common_widgets/shipping_dialog_button.dart';
 
 class ShippingDialog {
   static const keyLabels = [

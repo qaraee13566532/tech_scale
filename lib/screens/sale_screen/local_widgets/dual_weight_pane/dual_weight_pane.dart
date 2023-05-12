@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/sale_screen/dual_weight_pane/dual_device_spec.dart';
-import 'package:tech_scale/components/weight_card.dart';
-import 'package:tech_scale/screens/sale_screen/dual_weight_pane/floating_customer_functions.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/dual_weight_pane/local_widgets/dual_device_spec.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/dual_weight_pane/local_widgets/floating_customer_functions.dart';
+import 'package:tech_scale/widgets/weight_card.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class DualWeightPane extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/sale_screen/single_weight_pane/indicator_icon.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/single_weight_pane/local_widgets/indicator_icon.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class WeightCard extends StatelessWidget {

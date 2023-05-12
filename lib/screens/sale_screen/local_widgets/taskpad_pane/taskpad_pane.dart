@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/sale_screen/task_pane/task_pad_builder.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/taskpad_pane/local_widgets/task_pad_builder.dart';
 import 'package:tech_scale/utils/constant.dart';
 
-class TaskPad extends StatelessWidget {
-  const TaskPad({Key? key}) : super(key: key);
+class TaskPadPane extends StatelessWidget {
+  const TaskPadPane({Key? key}) : super(key: key);
 
 
   @override

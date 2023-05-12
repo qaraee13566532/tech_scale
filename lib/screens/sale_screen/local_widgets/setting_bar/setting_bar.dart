@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_scale/screens/sale_screen/setting_bar/setting_button.dart';
+import 'package:tech_scale/screens/sale_screen/local_widgets/setting_bar/local_widgets/setting_button.dart';
 import 'package:tech_scale/utils/constant.dart';
 
 class SettingBar extends StatelessWidget {
